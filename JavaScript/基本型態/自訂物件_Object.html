@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript 自訂物件: Object</title>
+</head>
+<body>
+    <script>
+    1 建立 Object 物件
+        let obj = {}
+        let obj = new Object()
+    
+        ※ const
+        const num = 123  // 使用修飾字 const 的意思是: 不能被 reassigned 
+        num = 456   // X
+        ----------------
+
+        const house = {
+            table: 1,
+            chair: 8,
+        }
+        house.table = 2  // √
+        house = 'ABC'    // X (被 reassigned) 
+    
+    2 example
+        const man = {
+            name: 'Peter',
+            age: 40,
+            gender: 'male',
+            favoriateColor: ['black','gray','white'],
+            car: {
+                make: 'BMW',
+                mode: 'X5',
+                year: 2022,
+            },
+            retired: false,
+            sayHello: function(){console.log('Hello')}, // 傳統的函數(ES5)
+            sayHi(){console.log('Hi')}, // 傳統的函數(ES6)
+            sayHiHi: () => {console.log('HiHi')},     // 箭頭函數
+        }
+
+        如何存取? (在 console 上面執行)
+        (1)
+        console.log(man.name)              // Peter
+        console.log(man.favoriateColor)    // ['black', 'gray', 'white']
+        console.log(man.favoriateColor[1]) // gray
+        console.log(man.car)               // {make: 'BMW', mode: 'X5', year: 2022}
+        console.log(man.car.mode)          // X5
+        console.log(man.sayHello())        // Hello
+
+        (2) 物件 (Object) 的陣列表示法
+        console.log(man['name'])              // Peter
+        console.log(man['favoriateColor'])    // ['black', 'gray', 'white']
+        console.log(man['favoriateColor'][1]) // gray
+        console.log(man['car'])               // {make: 'BMW', mode: 'X5', year: 2022}
+        console.log(man['car']['mode'])       // X5
+
+        (3) for in 
+        語法: for(let key in Object){}
+        
+        for(let key in man){
+            console.log(key)        // 「:」左邊的 key 值
+            console.log(man[key])   // 「:」右邊的 value 值
+        }
+
+    3 一定要用『物件 (Object) 的陣列表示法』
+        const products = {
+            10: 'Hat',
+            20: 'iPhone',
+            30: 'T-shirt',
+            40: 'fresh fish',
+            50: 'HomePod mini',
+            60: 'Mac Pro',
+        }
+
+        console.log(products.40)     // XX SyntaxError: Unexpected number
+        console.log(products[40])    // fresh fish
+
+    4 Object shorthand(物件縮寫)
+        function circle(x,y,r){
+            return {
+                x: x,
+                y: y,
+                r: r,
+            }
+        }
+        circle(100, 100, 80)
+        ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ 
+
+        function circle(x,y,r){
+            return {
+                x,
+                y,
+                r,
+            }
+        }
+        circle(100, 100, 80)
+    </script>
+</body>
+</html>

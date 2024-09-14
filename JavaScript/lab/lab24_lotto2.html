@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lotto</title>
+</head>
+<body>
+    <!-- 產生六個 1 ~ 49 號之間的樂透號碼 -->
+    <div></div>
+    
+    <script>
+        /*
+        Math.random()   產生 0(包含) ~ 1(不包含) 之間的亂數
+        Math.random()                       0 ~ 0.99999
+        Math.random() * 11                  0 ~ 10.99
+        parseInt(Math.random() * 11)        0 ~ 10
+        parseInt(Math.random() * 11) - 5   -5 ~ 5
+        */
+
+        // 公式: parseInt(Math.random() * 總個數) + 最小值
+        // 產生 -5 到 5 之間的數: parseInt(Math.random() * 11) - 5
+        // 產生 0 到 100 之間的數: parseInt(Math.random() * 101)
+
+        // JavaScript 搜尋的語法
+        // Array ==> includes()
+        // String ==> includes() | search(正規表示法)
+
+        function doFirst(){
+            let lottoArray = []
+
+            while(lottoArray.length < 6){
+                let lotto = parseInt(Math.random() * 49) + 1
+
+                /*
+                if(條件判斷){
+                    if true
+                }
+                if false
+                */
+               
+                if(!lottoArray.includes(lotto)){
+                    lottoArray.push(lotto)
+                }
+            }
+            // console.log(lottoArray);
+
+            // 由小到大排序
+            lottoArray.sort((x, y) => x - y)
+            // console.log(lottoArray);
+
+            document.querySelector('div').innerHTML = `本期樂透: ${lottoArray}`
+        }
+        window.addEventListener('load',doFirst)
+    </script>
+</body>
+</html>

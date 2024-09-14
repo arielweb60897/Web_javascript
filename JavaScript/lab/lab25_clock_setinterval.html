@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>clock</title>
+    <style>
+      span {
+        font: bold 20px Calibri;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+
+    <script>
+      //   語法:
+      //   1   setInterval(函數, 毫秒數);
+      //   2   setInterval(function () {}, 毫秒數);
+      //   3   setInterval(() => {}, 毫秒數);--->較多人使用
+      //   let time=setInterval( setInterval(() => {}, 毫秒數))
+      //   clearInterval(time)------>幾分停下來
+
+      //   setTimeout(函數,毫秒數)
+      function doFirst() {
+        setInterval(() => {
+          let today = new Date();
+
+          //   let hour=today.getHours()
+          //   let mintue=today.getMinutes()
+          //   let second=today.getSeconds()
+
+          //前面加 0 --->7:5:9 會顯示為 07:05:09，slice(只顯示兩位數)
+          let hour = ("0" + today.getHours()).slice(-2);
+          let mintue = ("0" + today.getMinutes()).slice(-2);
+          let second = ("0" + today.getSeconds()).slice(-2);
+
+          document.querySelector(
+            "div"
+          ).innerHTML = `<span>${hour}：${mintue}：${second}</span>`;
+        }, 1000);
+      }
+      window.addEventListener("load", doFirst);
+    </script>
+  </body>
+</html>

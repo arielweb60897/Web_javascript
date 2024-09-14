@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BMI</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./new.js"></script>
+  </head>
+  <body>
+    <form id="theForm">
+      <fieldset>
+        <legend>BMI</legend>
+        <div>
+          <label for="height">height：</label>
+          <input type="number" name="height" id="height" min="0" step="0.1" />
+        </div>
+        <div>
+          <label for="weight">weight：</label>
+          <input type="number" name="weight" id="weight" min="0" step="0.1" />
+        </div>
+        <div>
+          <button id="submit">Submit</button>
+        </div>
+        <div>
+          <label>BMI:</label>
+          <span id="result"></span>
+        </div>
+      </fieldset>
+    </form>
+  </body>
+</html>

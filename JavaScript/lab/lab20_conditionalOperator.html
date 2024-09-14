@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>條件(三元)運算子 ? :</title>
+  </head>
+  <body>
+    <!-- 一桶油漆可以漆 200 square feet，計算你需要幾桶油漆 -->
+
+    <div></div>
+
+    <script>
+      // let ans=(條件判斷)? if true : if false
+      function doFirst() {
+        const COVERAGE = 200;
+        let cans = 0;
+
+        let squareFeet = prompt("Enter number of square feet to be painted.");
+        let result = document.querySelector("div");
+
+        result.innerHTML = `You need ${squareFeet} square feet or paint. <br>`;
+        cans += parseInt(squareFeet / COVERAGE); // 起碼需要幾桶油漆 cans = cans + squareFeet / COVERAGE
+        // parseInt去掉小數點
+        cans += (squareFeet % COVERAGE != 0)? 1 : 0;
+        // cans += squareFeet % COVERAGE == 0;
+        result.innerHTML += `You need ${cans} ${
+          can < 1 ? "cans" : "can"
+        } of paint.<br>`;
+         
+        result.innerHTML+=`------------------------<br>`
+        
+        //切幾頁是相同的概念
+        const totalPage = 13;
+        let perPage = 12;
+
+        let pagenation = 0;
+        
+        pagenation += parseInt(totalPage/perPage) //起碼要切幾頁分頁
+        pagenation += (totalPage%perPage !=0) ? 1 : 0 //? if true : if false
+        result.innerHTML +=`${pagenation} pages<br>` 
+
+
+
+      }
+      window.addEventListener("load", doFirst);
+    </script>
+  </body>
+</html

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript 內建物件: String(page 104)</title>
+  </head>
+  <body>
+    <!-- 1 建立 String 
+        物件 let str = "ABC" let str = 'ABC' let str = `ABC` let str =new String() 
+    2 屬性: length
+    3 方法: - 拆分 charAt(index) indexOf(字串) |lastIndexOf(字串) 
+    slice(index from, index to) // 從字串中找出部分字串 (包含from 不包含 to) 
+    slice(index from[, index to]) // 從字串中找出部分字串
+    
+    substr(index from, count) // 不要再用了 
+    
+    substring(index from, index to) //從字串中找出部分字串 
+    substring(index from[, index to]) //從字串中找出部分字串 
+    
+    4 操作 concat() 字串串接 // 不需要 toLowerCase()
+    toUpperCase() split() 字串切割成陣列 -->
+    <span id="A1001" class="addButton">
+      Add Cart
+      <input type="hidden" value="Formosa|formosa.jpg|5000" />
+    </span>
+
+    replace(子字串, 欲取代的字串) - 跳脫字元 \n | \r\n 換行 \t \\ \' \"
+
+    <script>
+      window.onload = () => {
+        let language = "JavaScript";
+
+        document.write("charAt(index): " + language.charAt(0) + "<br>");
+        document.write(`charAt(index): ${language.charAt(4)} <br>`);
+        document.write(`indexOf(字串): ${language.indexOf("Script")} <br>`);
+        document.write(`indexOf(字串): ${language.indexOf("script")} <br>`);
+        document.write(`indexOf(字串): ${language.lastIndexOf("a")} <br>`);
+
+        let URL = "http://127.0.0.1:5500/JavaScript/8_String.html";
+        let theIndex = URL.lastIndexOf("/"); // 32
+
+        document.write(`slice(index from): ${URL.slice(theIndex + 1)} <br>`); //8_String.html
+        document.write(`substr(index from, count): ${URL.substr(33, 13)} <br>`); // 8_String.html
+        document.write(
+          `substring(index from, count): ${URL.substring(33, 35)} <br>` //8_
+        ); //8_
+
+        let address = `2215 NE 68th st `;
+        document.write(`concat(): ${address.concat("Seattle, WA98115")} <br>`); //2215 NE 68th st Seattle, WA98115
+        document.write(`${address} Seattle WA98115 <br>`);
+
+        // let data = 'Formosa|formosa.jpg|5000'
+        // // let dataArray = data.split('|')
+        // let title = data.split('|')[0]
+        // console.log(title);
+        // let image = data.split('|')[1]
+        // console.log(image);
+        // let price = data.split('|')[2]
+        // console.log(price);
+
+        let data = "Formosa, formosa.jpg, 5000";
+        // let dataArray = data.split(', ')
+        let title = data.split(", ")[0];
+        console.log(title);
+        let image = data.split(", ")[1];
+        console.log(image);
+        let price = data.split(", ")[2];
+        console.log(price);
+
+        document.write(` ------- <br>`);
+
+        document.write(
+          `replace(子字串, 欲取代的字串): ${"Hello world".replace(
+            "world",
+            "kitty"
+          )} <br>`
+        );
+
+        let addItemList = "A1001, A1005, A1006, A1002";
+        document.write(`${addItemList.replace("A1005, ", "")}<br>`);
+
+        document.write("It's" + "<br>"); // It's
+        document.write("It's" + "<br>"); // It's
+        document.write(`What's your name?<br>`); // What's your name?
+        document.write("\\nobody" + "<br>"); // \nobody
+      };
+    </script>
+  </body>
+</html>

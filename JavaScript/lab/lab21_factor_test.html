@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS: 因數</title>
+  </head>
+  <body>
+    <!-- 找出某數( 1 ~ 100 之間)的所有因數(除了 1 和本身以外) -->
+    <div></div>
+
+    <script>
+      function doFirst() {
+        let num = parseInt(Math.random() * 100) + 1; //parseInt 列出整數
+        // let num = 101;
+        let result = "";
+
+        let isPrime = true;
+
+        for (let div = 2; div * div <= num; div++) {
+          if (num % div == 0) {
+            if (div * div != num) {
+              result += `${num}可以被${div}和${num / div}除盡<br>`;
+            } else {
+              result += `${num}可以被${div}除盡<br>`;
+            }
+            isPrime = false;
+          }
+        }
+        if (isPrime == true) {
+          document.querySelector("div").innerHTML = `${num}為基數`;
+        } else {
+          document.querySelector("div").innerHTML = result;
+        }
+      }
+
+      window.addEventListener("load", doFirst);
+    </script>
+  </body>
+</html>

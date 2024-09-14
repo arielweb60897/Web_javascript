@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript 內建物件: Array</title>
+</head>
+<body>
+    1 建立 Array 物件
+        let arr = [2,4,6,'ABC',true,new Date()]
+        // arr[0]、arr[1]、arr[2]、arr[3]、arr[4]、arr[5]
+        let arr = new Array()
+
+    2 如何存取?
+        arr[0] ==> 2
+        arr[1] ==> 4
+        arr[2] ==> 6
+        arr[3] ==> ABC
+        arr[4] ==> true
+        arr[5] ==> Sat Aug 17 2024 11:41:52 GMT+0800 (台北標準時間)
+
+        for(let i = 0; i < arr.length; i++){
+            console.log(arr[i]);
+        }
+
+        // for .. in 迴圈
+        for(let i in arr){
+            console.log(arr[i]);
+        }
+
+        // for .. of 迴圈
+        for(let i of arr){
+            console.log(i);
+        }
+
+    3 屬性: length
+
+    4 方法:
+        indexOf() | lastIndexOf()
+
+          新增刪除在前端: unshift(item) | shift()
+        √ 新增刪除在後端: push(item) | pop()
+        √ 新增刪除在任意端: 
+            splice(index)   // 刪除
+            splice(index, 筆數) // 刪除 + 筆數
+            splice(index, 筆數, 新增1, 新增2, ...)  // 刪除 + 筆數 + 新增
+
+        陣列組成字串 join
+
+        搜尋: includes() 傳回 true 或 false
+        排序: sort() 或 
+              sort((x, y) => x - y) 由小到大
+              sort((x, y) => y - x) 由大到小
+        -----------------------------------------
+        陣列 = 陣列.filter(function(data){return 符合篩選條件的資料})
+        陣列 = 陣列.filter(data => 符合篩選條件的資料)
+
+        陣列 = 陣列.map(function(data){return 逐個處理完之後的結果})
+        陣列 = 陣列.map(data => 逐個處理完之後的結果)
+
+        物件 = 陣列.reduce(function(accumulator,data){
+            return 逐個處理，每次處理的結果放進累計器中
+        })
+        物件 = 陣列.reduce((accumulator,data) => 逐個處理，每次處理的結果放進累計器中)
+        -----------------------------------------
+
+        陣列.forEach(data => {})  // 對陣列內的每筆資料進行處理，但不會產生新的陣列
+        物件 = 陣列.find(target => {})  // 找第一個符合條件的元素
+        boolean = 陣列.some(target => {})  // 部分符合條件就傳回 true
+        boolean = 陣列.every(target => {})  // 全部符合條件才傳回 true
+
+
+    <script>
+        window.onload = () => {
+            let numArray = [100,200,300,400,500]
+            document.write(`${numArray}<br>`)
+
+            numArray.unshift(123)
+            numArray.unshift(456)
+            numArray.unshift(789)
+            document.write(`${numArray}<br>`)
+
+            numArray.shift()
+            document.write(`${numArray}<br>`)
+            document.write(`-------------------------------------<br>`)
+
+            numArray = [100,200,300,400,500]
+            document.write(`${numArray}<br>`)
+
+            numArray.push(111)
+            numArray.push(222)
+            numArray.push(333)
+            document.write(`${numArray}<br>`)
+
+            numArray.pop()
+            document.write(`${numArray}<br>`)
+            document.write(`-------------------------------------<br>`)
+
+            numArray = [100,200,300,400,500]
+            document.write(`${numArray}<br>`)
+
+            numArray.splice(2)
+            document.write(`${numArray}<br>`)
+            document.write(`-------------------------------------<br>`)
+
+            numArray = [100,200,300,400,500]
+            document.write(`${numArray}<br>`)
+
+            numArray.splice(2, 1)
+            document.write(`${numArray}<br>`)
+            document.write(`-------------------------------------<br>`)
+
+            numArray = [100,200,300,400,500]
+            document.write(`${numArray}<br>`)
+
+            numArray.splice(2, 0, 111, 222, 333)
+            document.write(`${numArray}<br>`)
+            document.write(`-------------------------------------<br>`)
+
+            let months = ['January','February','March','April','May','June']
+            document.write(`${months}<br>`)
+
+            let temp = months.join(` - `)
+            document.write(`${temp}<br>`)
+            document.write(`-------------------------------------<br>`)
+
+            document.write(`filter()<br>`)
+            numArray = [1,2,3,4,5,6]
+
+            // let newArray = numArray.filter(data => {
+            //     return data > 3
+            // })
+            let newArray = numArray.filter(data => data > 3)
+            document.write(`numArray: ${numArray} <br>`)
+            document.write(`newArray: ${newArray} <br>`)
+            document.write(`-------------------------------------<br>`)
+
+            document.write(`map()<br>`)
+            numArray = [1,2,3,4,5,6]
+
+            newArray = numArray.map(data => data * 5)
+
+            document.write(`numArray: ${numArray} <br>`)
+            document.write(`newArray: ${newArray} <br>`)
+            
+            newArray = numArray.map(data => `A100${data}`)
+            document.write(`newArray: ${newArray} <br>`)
+            document.write(`-------------------------------------<br>`)
+
+            document.write(`reduce()<br>`)
+            numArray = [1,2,3,4,5,6,7,8,9,10]
+
+            let sum = numArray.reduce((accumulator,data) => accumulator += data)
+            document.write(`sum: ${sum} <br>`)
+            document.write(`-------------------------------------<br>`)
+
+            document.write(`forEach()<br>`)
+           
+            // let books = [{},{},{}]
+            let books = [
+                {
+                    name: 'The Little Prince',
+                    price: 200,
+                    discount: 0.8,
+                    total: 0,
+                },
+                {
+                    name: 'HTML5 & CSS3',
+                    price: 680,
+                    discount: 0.7,
+                    total: 0,
+                },
+                {
+                    name: 'JavaScript',
+                    price: 500,
+                    discount: 0.65,
+                    total: 0,
+                }
+            ]
+
+            document.write(`${books}<br>`)
+
+            books.forEach(book => book.total = book.price * book.discount)
+            
+            for(let i = 0; i < books.length; i++){
+                document.write(`${Math.round(books[i].total)} <br>`)                
+            }
+
+            document.write(`-------------------------------------<br>`)
+
+            document.write(`find()<br>`)
+
+            targetArray = ['ABC','AAC','ATC','ARC','BRC']
+            findTarget = targetArray.find(target => {
+                return target.indexOf('RC') > -1
+            }) 
+            document.write(`findTarget: ${findTarget}<br>`)
+            document.write(`-------------------------------------<br>`)
+
+            numArray = [1,2,3,4,5,6,7,8,9,10]
+
+            numArray.forEach(num => console.log(num))
+
+            let ansMap = numArray.map(num => num * num)
+            console.log('ansMap: ', ansMap)
+
+            let ansFilter = numArray.filter(num => num % 2 == 1)
+            console.log('ansFilter: ', ansFilter)
+
+            let ansFind = numArray.find(num => num > 4)
+            console.log('ansFind: ', ansFind)
+
+            let ansSome = numArray.some(num => num > 2)
+            console.log('ansSome: ', ansSome)
+
+            let ansEvery = numArray.every(num => num > 2)
+            console.log('ansEvery: ', ansEvery)
+
+            console.log(`-------------------------------------<br>`)
+            
+            let actives = [
+                {
+                    name: '澎湖南方四島潛水之旅',
+                    attend: 24,
+                    price: 20000,
+                    cost: 18000,
+                },
+                {
+                    name: '西巴丹梭魚風暴',
+                    attend: 20,
+                    price: 25000,
+                    cost: 21000,
+                },
+                {
+                    name: '達拉灣赤道潛水',
+                    attend: 16,
+                    price: 35000,
+                    cost: 30000,
+                },
+                {
+                    name: '馬爾地夫Emperor船宿潛水',
+                    attend: 24,
+                    price: 99000,
+                    cost: 89000,
+                },
+            ]
+
+            actives.forEach(active => console.log(active.name))
+
+            let activeMap  = actives.map(active => {
+                return {
+                    name: active.name,
+                    total: active.attend * (active.price - active.cost)
+                }
+            })
+            console.log(`-------------------------------------<br>`)
+            console.log('activeMap: ',activeMap);
+
+            let party = actives.find(active => active.name.indexOf('潛水') != 1)
+            console.log(party);
+
+
+            let farmer = 'Peter'
+            let cornfield1 = 234
+            let cornfield2 = 123
+            let cornfield3 = 5
+            let open = true
+
+            let cornfield = [234,123,5,789]
+            let dogs = ['AAA','BBB']
+
+
+        }
+    </script>
+</body>
+</html>

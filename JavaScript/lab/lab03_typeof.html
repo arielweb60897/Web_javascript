@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>如何使用typeof</title>
+  </head>
+  <body>
+    <!-- 練習目的：了解如何使用 typeof 找出其資料型態
+        1. 使用 typeof 印出 123, '123', [123], indexOf, addEventListener, undefined, null 各是甚麼型態?
+    -->
+    <script>
+      /*JS註解
+      可多行註解*/
+      // js 的註解，英文和數字旁邊要空白
+      // 1  的註解
+      console.log("123 的型態: " + typeof 123); // number
+
+      // 使用 backtick(反引號)
+      console.log(`123 的型態: ${typeof 123}`); //  number
+      console.log(`'123' 的型態: ${typeof "123"}`); //  string
+      console.log(`[123] 的型態: ${typeof [123]}`); //  object
+      console.log(`indexOf 的型態: ${typeof indexOf}`); //  undefined
+      console.log(`indexOf 的型態: ${typeof "ABC".indexOf}`); // funtion
+      console.log(`addEventListener 的型態: ${typeof addEventListener}`); //  funtion
+      console.log(`undefined 的型態: ${typeof undefined}`); //  undefined
+      console.log(`null 的型態: ${typeof null}`); //  object
+
+      let name = "Peter";
+      console.log("Hello, " + name + "!"); // Hello, Peter!
+      console.log(`Hello, ${name}!`); // Hello, Peter!
+    </script>
+  </body>
+</html>

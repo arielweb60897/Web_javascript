@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <style>
+    .addButton {
+      border: 1px solid #000;
+      border-radius: 5px;
+      padding: 0 5px;
+    }
+  </style>
+  <body>
+    <span id="A1001" class="addButton">
+      Add Cart
+      <input type="hidden" value="Formosa|formosa.jpg|5000" />
+    </span>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <span id="A1002" class="addButton">
+      Add Cart
+      <input type="hidden" value="Lion Bear|lion.jpg|8000" />
+    </span>
+    <script>
+      //物件.事件=處理函數
+      window.onload = function () {
+        let list = document.querySelectorAll(".addButton"); // list 是陣列
+
+        for (let i = 0; i < list.length; i++) {
+          list[i].addEventListener("click", function () {
+            // alert(this.id);
+
+            // let teddInfo = document.querySelector(`#A1001 input`).value;
+            let teddInfo = document.querySelector(`#${this.id} input`).value; //因為是變數所以用 ${ }
+            // alert(teddInfo);
+            let title = teddInfo.split("|")[0]; //split()字串切割成陣列
+            // alert(title);
+            let image = teddInfo.split("|")[1];
+            // alert(image);
+            let price = teddInfo.split("|")[2];
+            alert(price);
+          });
+        }
+      };
+
+      let bear = document.querySelector(`#A1001`);
+      console.log(bear.id);
+
+      let bearValue = document.querySelector(`#A1001 input`); //空格=找出A1001底下的input
+      console.log(bearValue.value); //bearValue底下的value
+    </script>
+  </body>
+</html>

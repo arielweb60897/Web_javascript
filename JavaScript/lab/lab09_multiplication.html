@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>乘法運算子</title>
+  </head>
+  <body>
+    <!-- 練習目的：了解乘法運算子 
+         定義長方形的寬 width 為 123.45, 高 height 為 6.7
+         印出該長方形的邊長(perimeter)和與面積(area)。
+    -->
+
+    <div></div>
+
+    <script>
+      let width = 123.45;
+      let height = 6.7;
+
+      let perimeter = (width + height) * 2;
+      let area = width * height;
+
+      document.querySelector("div").innerText = `
+      長方形的邊長和為${perimeter}與面積${area}`;
+    </script>
+  </body>
+</html>

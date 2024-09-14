@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./new.js"></script>
+  </head>
+  <body>
+    <form id="theForm">
+      <fieldset>
+        <legend>Calculator</legend>
+        <div>
+          <label for="quantity">quantity：</label>
+          <input type="number" name="quantity" id="quantity" min="0" />
+        </div>
+        <div>
+          <label for="price">price per unit：</label>
+          <input type="number" name="price" id="price" min="0" step="0.1" />
+          <!-- 一般無法寫小數點，用 step 來調整可以寫小數點後位置 -->
+        </div>
+        <div>
+          <label for="tax">tax rate(%)：</label>
+          <input type="number" name="tax" id="tax" min="0" step="0.01" />
+        </div>
+        <div>
+          <label for="discount">discount：</label>
+          <input type="number" name="discount" id="discount" min="0" />
+        </div>
+        <div>
+          <button id="submit">Submit</button>
+        </div>
+        <div>
+          <label for="total">total:</label>
+          <span id="total"></span>
+        </div>
+        <div id="feedback"></div>
+      </fieldset>
+    </form>
+  </body>
+</html>

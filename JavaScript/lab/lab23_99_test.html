@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>nested loop</title>
+  </head>
+  <body>
+    <!-- 作業
+        9   8   7   6   5   4   3   2   1
+       18  16  14  12  10   8   6   4
+       27  24  21  18  15  12   9
+       36  32  28  24  20  16
+       45  40  35  30  25
+       54  49  42  36
+       63  56  49
+       72  64
+       81
+    -->
+    <div></div>
+
+    <script>
+      function doFirst() {
+        let result = document.querySelector("div");
+
+        for (let i = 1; i <= 9; i++) {
+          // rows列
+          for (let j = 9; j - i >= 0; j--) {
+            // cols行
+            if (i * j < 10) {
+              result.innerHTML += `&nbsp;&nbsp;&nbsp;&nbsp;${i * j}`;
+            } else {
+              result.innerHTML += `&nbsp;&nbsp;${i * j}`;
+            }
+          }
+          result.innerHTML += `<br>`;
+        }
+      }
+
+      window.addEventListener("load", doFirst);
+    </script>
+  </body>
+</html>

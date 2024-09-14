@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS: 因數</title>
+  </head>
+  <body>
+    <!-- 產生 -5 到 5 之間的溫度，計算低於零度 C 的百分比 -->
+    <div></div>
+
+    <script>
+      //Math.random( )
+      //公式：parseInt(Math.random() * 總個數 )＋ 最小值
+
+      function doFirst() {
+        let allDays = 5;
+        let coldDays = 0;
+        for (let i = 0; i < allDays; i++) {
+          temperature = parseInt(Math.random() * 11) - 5;
+          console.log(temperature);
+
+          if (temperature < 0) {
+            coldDays++; //本身加一
+          }
+        }
+        console.log(coldDays + "days");
+        document.querySelector(
+          "div"
+          // ).innerText = allDays+"days total:"+coldDays/allDays*100 + "%were below freezing";
+        ).innerText = `${allDays} days total:${
+          (coldDays / allDays) * 100
+        }% were below freezing`;
+      }
+      window.addEventListener("load", doFirst);
+    </script>
+  </body>
+</html>

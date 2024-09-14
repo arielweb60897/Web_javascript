@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./new.js"></script>
+  </head>
+  <body>
+    <!-- <form method="get"> get=網址記住輸入項目 一般搜尋引擎多用，就會記得使用者常搜尋項目
+    <form method="post"> post沒有留下來-->
+    <form id="theForm">
+      <fieldset>
+        <legend>To-Do List</legend>
+        <p>Enter an item to be done.</p>
+        <div>
+          <label for="task">task：</label>
+          <input type="text" name="task" id="task" value="" />
+          <button id="submit">submit</button>
+          <!-- name 欄位名稱  id 顯示數值-->
+        </div>
+        <!-- #feedback -->
+        <div id="feedback"></div>
+      </fieldset>
+    </form>
+  </body>
+</html>

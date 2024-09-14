@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [2, 4, 6, "ABC", true, new Date()];
+
+      for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]); //顯示陣列數值
+      }
+      //   let cornfield_1 = 234;
+      //   let cornfield_2 = 123;
+      //   let cornfield_3 = 5;
+      //   let cornfield_4 = 789;
+      // 用陣列表示就不用寫這麼多
+      let cornfield = [234, 123, 5, 789];
+      let sum = 0;
+      for (let i = 0; i < cornfield.length; i++) {
+        sum += cornfield[i]; //加總陣列 234 + 123 + 5 + 789=1151
+      }
+      console.log(sum);
+
+      //新增刪除在前端: unshift(item) | shift()
+      let numArray = [100, 200, 300, 400, 500];
+      numArray.splice(2);
+      numArray.splice(2, 0);
+      //(3) [300, 400, 500]
+
+      //新增刪除在後端: push(item) | pop()
+      let numArray2 = [100, 200, 300, 400, 500];
+      numArray.pop(200);
+      //100
+
+      //新增刪除在任意端:
+      // splice(index)刪除
+      // splice(index, 筆數)刪除 + 筆數
+      // splice(index, 筆數, 新增1, 新增2, ...)刪除 + 筆數 + 新增
+    </script>
+  </body>
+</html>

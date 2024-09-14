@@ -1,0 +1,44 @@
+新功能！鍵盤快速鍵 … Google 雲端硬碟鍵盤快速鍵已更新，可讓你透過首字母導覽功能找到所需項目 * {
+    margin: 0;
+    /* padding: 0; */
+    font: 18px Consolas;
+}
+
+body {
+    background-color: #ccc;
+}
+
+#theForm {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: 375px;
+    padding: 10px;
+    margin: 50px;
+}
+
+#theForm div {
+    margin: 10px 0px;
+}
+
+#theForm label:nth-child(1),
+button,
+legend {
+    text-transform: capitalize;
+}
+
+#theForm label:nth-child(1) {
+    width: 110px;
+    float: left;
+}
+
+p {
+    font-size: 14px;
+    color: steelblue;
+    padding: 0;
+    margin: 0;
+}
+
+#result {
+    width: 210px;
+    height: 200px;
+}

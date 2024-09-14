@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      .addButton {
+        border: 1px solid #000;
+        border-radius: 5px;
+        padding: 0 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <span id="A1001" class="addButton">
+      Add Cart
+      <input type="hidden" value="Formosa|formosa.jpg|5000" />
+    </span>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <span id="A1002" class="addButton">
+      Add Cart
+      <input type="hidden" value="Lion Bear|lion.jpg|8000" />
+    </span>
+    <script>
+      let bear = document.querySelector("#A1001 input");
+      console.log(bear.value);
+    </script>
+  </body>
+</html>

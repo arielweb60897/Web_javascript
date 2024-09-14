@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>nested loop</title>
+  </head>
+  <body>
+    <!--
+        123456
+        123456
+        123456
+        123456
+        123456
+        123456
+    -->
+
+    <div></div>
+
+    <script>
+      /*
+      let n = 0   // 初值
+      while(n < 3){    // 條件(終止條件)判斷
+          do something
+
+          n++ // 更新條件
+      }
+      -------------------------------------
+      for(let n = 0; n < 3; n++){
+          do something
+      }
+      */
+      let result = "";
+      const ROW = 9;
+      const COLS = 9;
+
+      // ⬇️控制列(row)
+      for (let i = 0; i <= 6; i++) {
+        // ⬇️控制行(column)
+        for (let j = 1; j <= 6; j++) {
+          result += j; //result=result+j
+        }
+        result += "<br>";
+      }
+      document.querySelector("div").innerHTML = result;
+    </script>
+  </body>
+</html>

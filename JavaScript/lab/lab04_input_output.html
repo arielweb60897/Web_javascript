@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS的輸出輸入</title>
+  </head>
+  <body>
+    <!-- 練習目的：了解跳出視窗並處理輸出輸入
+        1. 使用 prompt() 輸入姓名，
+           並用 alert() 輸出 'My name is 你輸入的名字'
+        2. 使用 confirm('Are you sure this is the right direction?')，
+           並用 alert() 輸出 'Your answer is true / false'
+    -->
+    <script>
+      //   let name = prompt(`Enter yout name`);
+      //   console.log(name); //f12的console中出現
+      //   window.alert(`My name is ${name}`); //windows唯一可省物件
+
+      let ans = confirm(`Are you sure this is the right direction?`);
+      alert(`your answer is ${ans}`);
+    </script>
+  </body>
+</html>

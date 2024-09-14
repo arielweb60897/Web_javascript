@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS: 因數</title>
+  </head>
+  <body>
+    <!-- 找出某數( 1 ~ 100 之間)的所有因數(除了 1 和本身以外) -->
+    <div></div>
+
+    <script>
+      function doFirst() {
+        // 產生 1 ~ 100 之間的亂數
+        // let num = parseInt(Math.random() * 100) + 1
+
+        //18(num) 可以能被整除的數
+
+        let num = 36;
+        let result = ``;
+
+        let isPrime = true; //假設所有的數都是質數
+        //1
+        // for (let div = 2; div < num; div++) { //除了1以外的數let div = 2
+        //   if (num % div == 0) {// % 是兩數相除的餘數
+        //     result += `${num} is divisible by ${div}<br>`;
+        //   }
+        // }
+
+        //處理程序較少，跑比較快
+        // 2
+        for (let div = 2; div * div <= num; div++) {
+          //除了1以外的數let div = 2
+          if (num % div == 0) {
+            //% 是兩數相除的餘數
+            if (div * div != num) {
+              // != 不等於的意思 抓平方根數
+              result += `${num} is divisible by ${div} and ${num / div}<br>`;
+            } else {
+              result += `${num} is divisible by ${div}<br>`;
+            }
+
+            isPrime = false; //無法被整除的進入下一層if else
+          }
+        }
+
+        if (isPrime == true) {
+          document.querySelector("div").innerHTML = `${num} is prime.`;
+        } else {
+          document.querySelector("div").innerHTML = result;
+        }
+      }
+
+      //     for (let div = 2; div * div <= num; div++) {
+      //       //除了1以外的數let div = 2
+      //       if (num % div == 0) {
+      //         //% 是兩數相除的餘數
+      //         if (div * div != num) {
+      //           // != 不等於的意思 抓平方根數
+      //           result += `${num} is divisible by ${div} and ${num / div}<br>`;
+      //         } else {
+      //           result += `${num} is  divisible by ${div}<br>`;
+      //         }
+      //         isPrime = false; //無法被整除的進入下一層if else
+      //       }
+      //     }
+      //     if (isPrime == true) {
+      //     } else {
+      //       document.querySelector("div").innerHTML = `${num} is Prime`;
+      //     }
+
+      //     document.querySelector("div").innerHTML = result;
+      //   }
+      window.addEventListener("load", doFirst);
+    </script>
+  </body>
+</html>

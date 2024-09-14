@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>nested loop</title>
+  </head>
+  <body>
+    <div></div>
+
+    <script>
+      function doFirst() {
+        // 1
+        // ABCDEF
+        // ABCDEF
+        // ABCDEF
+        // ABCDEF
+        // ABCDEF
+        // ABCDEF
+
+        //     const ROWS = 6; //列
+        //     const COLS = 6; //行
+        //     let result = "";
+        //     let fromA = 65; //ascii code 第 65 為大寫A
+
+        //     //控制列(row)
+        //     for (let row = 0; row < ROWS; row++) {
+        //       //控制行=(column)
+        //       for (let cols = fromA; cols < fromA + COLS; cols++) {
+        //         //formA 的 A 大寫與 ascii code 有關
+        //         result += String.fromCharCode(cols); //轉成字串
+        //       }
+        //       result += "<br>";
+        //     }
+        //     document.querySelector("div").innerHTML = result;
+        //   }
+        // // //陣列  從 0 開始
+        // let arr = [2, 4, 6, 8, 10];
+
+        // for (let i = 0; i < arr.length; i++) {
+        //   console.log(arr[i]);
+        // }
+
+        // 2(多一列少一個)
+        // ABCDEF
+        // ABCDE
+        // ABCD
+        // ABC
+        // AB
+        // A
+
+        //     const ROWS = 6;
+        //     const COLS = 6;
+        //     let result = "";
+        //     let fromA = 65; //ascii code 第 65 為大寫A
+
+        //     //控制列(row)
+        //     for (let row = 0; row < ROWS; row++) {
+        //       //控制行=(column)
+        //       for (let cols = fromA; cols < fromA + COLS - row; cols++) {
+        //         //formA 的 A 大寫與 ascii code 有關
+        //         result += String.fromCharCode(cols); //轉成字串
+        //       }
+        //       result += "<br>";
+        //     }
+        //     document.querySelector("div").innerHTML = result;
+        //   }
+        // 3
+        // ABCDEF
+        // BCDEF
+        // CDEF
+        // DEF
+        // EF
+        // F
+
+        const ROWS = 6;
+        const COLS = 6;
+        let result = "";
+
+        let fromA = 65; //ascii code 第 65 為大寫A
+
+        //控制列(row)
+        for (let row = 0; row < ROWS; row++) {
+          //控制行=(column)
+          for (let cols = fromA + row; cols < fromA + COLS; cols++) {
+            //formA 的 A 大寫與 ascii code 有關
+            result += String.fromCharCode(cols); //轉成字串
+          }
+          result += "<br>";
+        }
+        document.querySelector("div").innerHTML = result;
+      }
+
+      //老師寫
+      //     const ROWS = 6;
+      //     const COLS = 6;
+      //     let result = "";
+
+      //     let fromA = 65;
+
+      //     for (let row = 0; row < ROWS; row++) {
+      //       // 控制列 (row)
+      //       for (let cols = fromA + row; cols < fromA + COLS; cols++) {
+      //         // 控制行 (column)
+      //         result += String.fromCharCode(cols);
+      //       }
+      //       result += "<br>";
+      //     }
+      //     document.querySelector("div").innerHTML = result;
+      //   }
+      window.addEventListener("load", doFirst);
+    </script>
+  </body>
+</html>

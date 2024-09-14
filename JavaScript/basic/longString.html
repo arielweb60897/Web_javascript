@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>longString</title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      //老師的console.log
+      //   let name = "peter";
+      //   console.log("hello，" + "name");
+      //   console.log("hello，" + name);
+      //   console.log(`hello，` + `${name}`);
+      //   console.log(`hello，` + name);
+
+      let language = "JavaScript";
+
+      console.log(language.toLowerCase()); //全部轉成小寫
+      console.log(language.toUpperCase()); //全部轉成大寫
+
+      //replace("想取代文字","取代的文字")
+      console.log("Hello world".replace("world", "kitty"));
+
+      console.log((items = "A1001,A1005,A1006,A1002"));
+      console.log("A1001,A1005,A1006,A1002".replace("A1005,", ""));
+
+      //老師寫
+      let name = "Peter";
+      console.log("Hello, " + name + "!");
+      console.log("Hello, " + name + "^^");
+      console.log(`Hello, ${name}@@`);
+
+      let longString =
+        '<div id="skin">' +
+        '<video id="myMovie" width="640">' +
+        '<source src="./movies/videoplayback.mp4">' +
+        "</video>";
+      // console.log(longString);
+
+      let backtickString = `<div id="skin">
+                <video id="myMovie" width="640">
+                    <source src="./movies/videoplayback.mp4">
+                </video>
+                <nav>
+                    <div id="buttons">
+                        <button id="playButton">play</button>
+                        <button id="stopButton">stop</button>
+                        <button id="upButton">Volume up</button>
+                        <button id="downButton">Volume down</button>
+                        <button id="mutedButton">muted</button>
+                    </div>
+                    <div id="defaultBar">
+                        <div id="progress"></div>
+                    </div>
+                </nav>
+            </div>
+            `;
+      // console.log(backtickString);
+    </script>
+  </body>
+</html>
+<!-- 
+    <div id="skin">
+        <video id="myMovie" width="640">
+            <source src="./movies/videoplayback.mp4">
+        </video>
+        <nav>
+            <div id="buttons">
+                <button id="playButton">play</button>
+                <button id="stopButton">stop</button>
+                <button id="upButton">Volume up</button>
+                <button id="downButton">Volume down</button>
+                <button id="mutedButton">muted</button>
+            </div>
+            <div id="defaultBar">
+                <div id="progress"></div>
+            </div>
+        </nav>
+    </div>
+-->

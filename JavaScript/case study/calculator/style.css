@@ -1,0 +1,30 @@
+body {
+    background: #ccc;
+}
+
+* {
+    font: 18px consolas;
+}
+
+#theForm {
+    background-color: #fff;
+    width: 280px;
+    /* w50p-->width:50% */
+    padding: 10px;
+    margin: 50px;
+    border: 1px solid #ddd;
+}
+
+#theForm div {
+    margin: 10px;
+}
+
+label,
+button {
+    /* 第一個字母大寫 */
+    text-transform: capitalize;
+}
+
+#total {
+    color: maroon;
+}
