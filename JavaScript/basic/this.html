@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>This</title>
+  </head>
+  <body>
+    <!-- 講義P74 -->
+    <button id="theButton">Click</button>
+
+    <script>
+      //1
+      let theButton = document.querySelector("#theButton");
+      //事件.物件,處理函數(講義71頁)
+      theButton.addEventListener("click", function (e) {
+        console.log(e); //印出事件物件的屬性和方法
+        console.log(e.target); //執行 click 事件的物件本身
+        // alert(e.target); //顯示內容和 console 不一定一樣
+        console.log(e.type); //該物件發生的事件
+        console.log("--------------------------");
+
+        console.log(e.target.nodeName); //執行 click 事件的物件標籤名稱(全部大寫)
+        console.log(this.nodeName); //BUTTON
+      });
+      // this 在 JavaScript 代表「執行當下的"外層物件"」，所以 this 在執行時候才有意義
+      // 至於 this 代表哪一個物件，跟它的情境(context)有關
+
+      // 以下程式去 console 執行
+      //2
+      function action() {
+        console.log(this);
+      }
+      action(); //action()沒有外層物件 ，所以會顯示外層的 window 物件
+
+      //3
+      let man = {
+        name: "Peter",
+        sayHello: function () {
+          console.log(this);
+        },
+        // sayHello(){
+        //     console.log(this)
+        // },
+      };
+      man.sayHello(); // man 物件
+      // 4 改成箭頭函數
+      let man = {
+        name: "Peter",
+        // sayHello: () => {
+        //     console.log(this)
+        // },
+        sayHello: () => console.log(this),
+      };
+      man.sayHello(); // window 物件
+      // 箭頭函數內並沒有包含 this，所以 this 會往外層找
+      // 5 IIFE (Immediately Invoked Function Expression) page 76
+      let hello = function (name) {
+        console.log(`Hello, ${name}!`);
+      };
+      hello("Peter");
+
+      // 6 IIFE 大多搭配箭頭函數
+      let hello = (name) => console.log(`Hello, ${name}!`);
+
+      hello("Peter");
+
+      // 7 IIFE 如何立刻執行
+      let hello = (function (name) {
+        console.log(`Hello, ${name}`);
+      })("Andy"); // Hello, Andy!
+
+      // ※ 函數的寫法:
+      // 傳統函數: function action(){.....}
+      // IIFE:    const action = function(){.....}
+      // IIFE + 箭頭函數    const action = () => {.....}
+    </script>
+  </body>
+</html>

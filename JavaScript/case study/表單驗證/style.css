@@ -1,0 +1,37 @@
+*{
+    font: 20px Consolas;
+}
+body{
+    background-color: #ccc;
+}
+#theForm{
+    background-color: #fff;
+    width: 450px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 50px;
+}
+#theForm div{
+    margin: 10px 0px;
+}
+label,button{
+    text-transform: capitalize;
+}
+#total{
+    color: maroon;
+}
+label{
+    width: 130px;
+    float: left;
+}
+p{
+    font-size: 16px;
+    color: maroon
+}
+span{
+    font-size: 16px;
+}
+.lastButton{
+    text-align: center;
+    margin: 8px;
+}

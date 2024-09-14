@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Regular Expression(正規表示式)</title>
+  </head>
+  <body>
+    <script>
+          // 語法:
+          // let rules = new RegExp('[0-9]')
+          // let rules = /[0-9]/
+
+      // 1
+          // let str = '123'
+          // let rules = /[0-9]/
+          // console.log(rules.test(str))
+
+          let str = 'AbC'
+          let rules = /[a-zA-Z]/
+          console.log(rules.test(str))
+
+      // 2 密碼為 6 ~ 12 個字元(英文字母大小寫 + 數字)
+          let password = `123abc456xyz`
+          let pwRules = /[a-zA-Z0-9]{6,12}/
+          console.log(pwRules.test(password))
+      //驗證字元
+          /./任意字元
+          /a/字串裡面要有 a (abc,ABaC)
+          /.a/字串裡面要有 a，a 後面一定要有字 (abc,ABaC)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>註冊</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./new.js"></script>
+</head>
+<body>
+    <form id="theForm">
+        <fieldset>
+            <legend>Register</legend>
+            <p>All fields are required.</p>
+            <hr>
+            <div>
+                <label for="firstName">first name: </label>
+                <input type="text" name="firstName" id="firstName">
+            </div>
+            <div>
+                <label for="lastName">last name: </label>
+                <input type="text" name="lastName" id="lastName">
+            </div>
+            <div>
+                <label for="username">username: </label>
+                <input type="text" name="username" id="username">
+            </div>
+            <div>
+                <label for="password">password: </label>
+                <input type="text" name="password" id="password">
+            </div>
+            <div>
+                <label for="email">email: </label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div>
+                <label for="phone">phone: </label>
+                <input type="text" name="phone" id="phone" placeholder="09XXXXXXXX">
+            </div>
+            <div>
+                <label for="gender">gender: </label>
+                <select name="gender" id="gender">
+                    <option value="male">male</option>
+                    <option value="female">female</option>
+                    <option value="others">others</option>
+                </select>
+            </div>
+            <!-- <div>
+                <label for="city">city: </label>
+                <select name="city" id="city">
+                    <option value="">台北市</option>
+                    <option value="">新北市</option>
+                    <option value="">基隆</option>
+                    <option value="">桃園</option>
+                </select>
+                <select name="area" id="area">
+                    <option value="">100 中正區</option>
+                    <option value="">103 大同區</option>
+                    <option value="">104 中山區</option>
+                    <option value="">105 松山區</option>
+                    <option value="">106 大安區</option>
+                    <option value="">108 萬華區</option>
+                    <option value="">110 信義區</option>
+                    <option value="">111 士林區</option>
+                    <option value="">112 北投區</option>
+                    <option value="">114 內湖區</option>
+                    <option value="">116 文山區</option>
+                </select>
+                <select name="zipCode" id="zipCode">
+                    <option value="">100</option>
+                    <option value="">105</option>
+                    <option value="">106</option>
+                    <option value="">110</option>
+                </select>
+            </div> -->
+            <div>
+                <label for="address">address: </label>
+                <input type="text" name="address" id="address">
+            </div>
+            <hr style="clear:both;">
+            <div>
+                <input type="checkbox" name="address" id="address">
+                <span>I agree to the <a href="#">terms</a>, whatever they are </span>
+            </div>
+            <div class="lastButton">
+                <button id="submit">Submit</button>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>
