@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    /* padding: 0; */
+    font: 18px Consolas;
+}
+
+body {
+    background-color: #ccc;
+}
+
+#theForm {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: 280px;
+    padding: 10px;
+    margin: 30px;
+}
+
+#theForm div {
+    margin: 10px 0px;
+}
+
+#theForm label:nth-child(1),
+button,
+legend {
+    text-transform: capitalize;
+}
+
+#theForm label:nth-child(1) {
+    width: 70px;
+    float: left;
+}
+
+p {
+    font-size: 14px;
+    color: steelblue;
+}
+
+#result {
+    height: 100px;
+}
+
+#result span {
+    color: red;
+}

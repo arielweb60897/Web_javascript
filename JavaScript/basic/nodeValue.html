@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nodeValue</title>
+</head>
+<body>
+    <p>Lorem ipsum</p>
+
+    <script>
+        // ----- nodeValue -----
+        // let content = document.querySelector('p').innerText
+        // let content = document.querySelector('p').textContent
+        let content = document.querySelector('p').firstChild.nodeValue
+
+        alert(content)
+
+        // ----- nodeName -----
+        let pTag = document.querySelector('p')
+        alert(pTag.nodeName)
+    </script>
+</body>
+</html>

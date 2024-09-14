@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+    <style>
+        img{
+            width: 80px;
+        }
+        .addButton{
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 5px;
+        }
+        /* span input{} */
+    </style>
+</head>
+<body>
+    <form id="theForm">
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="female"> Female
+        <input type="radio" name="gender" value="other"> Other
+        
+        <!-- <button>submit</button> -->
+        <p>
+            <img src="../../images/demo/dog.jpg">
+            <span>Dog</span>
+            <span>1200</span>
+            <span id="A1001" class="addButton">
+                Add Cart
+                <input type="hidden" value="Dog|dog.jpg|1200">
+            </span>
+        </p>
+        <p>
+            <img src="../../images/demo/golf.jpg" alt="">
+            <span>Golf</span>
+            <span>1500</span>
+            <span id="A1002" class="addButton">
+                Add Cart
+                <input type="hidden" value="Golf|golf.jpg|1500">
+            </span>
+        </p>
+    </form>
+
+    <script>
+        let theForm1 = document.querySelector('#theForm')
+        let theForm2 = document.getElementById('theForm')
+
+        // let list = document.getElementsByClassName('addButton')
+        let list = document.querySelectorAll('.addButton')  // list 是陣列
+
+        // 幫每個 Add Cart 建立事件聆聽功能
+        for(let i = 0; i < list.length; i++){
+            list[i].addEventListener('click', function( e ){
+                alert(e.target.id)
+
+                // let itemInfo = document.getElementById(e.target.id).getElementsByTagName(`input`)[0].value
+                // let itemInfo = document.querySelector(`#A1001 input`).value
+                let itemInfo = document.querySelector(`#${e.target.id} input`).value
+                alert(itemInfo)
+            })
+        }
+
+    </script>
+</body>
+</html>
