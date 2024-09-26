@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>spread & rest operator</title>
+</head>
+<body>
+    <script>
+        console.log('--------spread operator----------');
+        function add(x, y, z){
+            console.log(x + y + z);            
+        }
+
+        let numArray = [5, 6, 7];
+        add(numArray[0], numArray[1], numArray[2])
+        add(...numArray)
+
+        let meats = ['bacon','ham','chicken']
+        let food = ['pizza', 'pasta', ...meats, 'rice', 'bagel']
+
+        console.log(food);           
+        
+        console.log('--------rest operator----------');
+        let [arr,...others] = numArray;
+        console.log(arr);   
+        console.log(others);   
+        
+    </script>
+</body>
+</html>

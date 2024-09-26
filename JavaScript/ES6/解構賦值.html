@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>destructuring assignment (解構賦值)</title>
+</head>
+<body>
+    <script>
+        const man = {
+            name: 'Peter',
+            age: 40,
+            gender: 'male',
+            favoriateColor: ['black', 'gray', 'white'],
+            car: {
+                make: 'BMW',
+                model: 'X5',
+                year: 2022
+            },
+            retired: false,
+            married: true,
+        }
+
+        console.log(man.name);
+        console.log(man.age);
+        console.log(man.favoriateColor[1]);
+        console.log('--------------------');
+
+        const {name, age, car} = man;  // 從 man 物件將 name、age、car 取出來使用
+        console.log(name);
+        console.log(age);
+        console.log(car);
+        
+    </script>
+</body>
+</html>

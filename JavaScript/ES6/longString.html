@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>string template(backtick)</title>
+</head>
+<body>
+    <script>
+        let longString = 
+            '<div id="skin">' +
+            '<video id="myMovie" width="640">' +
+            '<source src="./movies/videoplayback.mp4">' +
+            '</video>'
+        // console.log(longString);
+        
+        let backtickString = 
+            `<div id="skin">
+                <video id="myMovie" width="640">
+                    <source src="./movies/videoplayback.mp4">
+                </video>
+                <nav>
+                    <div id="buttons">
+                        <button id="playButton">play</button>
+                        <button id="stopButton">stop</button>
+                        <button id="upButton">Volume up</button>
+                        <button id="downButton">Volume down</button>
+                        <button id="mutedButton">muted</button>
+                    </div>
+                    <div id="defaultBar">
+                        <div id="progress"></div>
+                    </div>
+                </nav>
+            </div>
+            `
+            // console.log(backtickString);
+
+        let name = 'Peter'
+        console.log('Hello, ' + name + '!');
+        console.log("Hello, " + name + "^^");
+        console.log(`Hello, ${name}@@`);
+        
+    </script>
+</body>
+</html>
+
+
+<!-- 
+    <div id="skin">
+        <video id="myMovie" width="640">
+            <source src="./movies/videoplayback.mp4">
+        </video>
+        <nav>
+            <div id="buttons">
+                <button id="playButton">play</button>
+                <button id="stopButton">stop</button>
+                <button id="upButton">Volume up</button>
+                <button id="downButton">Volume down</button>
+                <button id="mutedButton">muted</button>
+            </div>
+            <div id="defaultBar">
+                <div id="progress"></div>
+            </div>
+        </nav>
+    </div>
+-->

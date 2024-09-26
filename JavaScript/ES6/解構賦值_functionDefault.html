@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>解構賦值: 給予預設值</title>
+</head>
+<body>
+    <script>
+        // 函數的寫法:
+        // 傳統的函數: function action(){....}
+        // IIFE: const action = function(){....}
+        // IIFE + 箭頭函數: const action = () => {....}
+        // ------------------------------
+
+        // 1 傳「數值陣列」進去，輸出「字串陣列」
+        // const NumToString = (numArray) => {
+        //     const mapString = numArray.map(data => data.toString())
+            
+        //     return mapString
+        // }
+
+        // console.log(NumToString([111,222,333,444,555]));
+
+        // 2 如果沒有傳值?
+        // numArray 會收到 undefined，undefined 不能使用 map()
+        // const NumToString = (numArray) => {
+        //     const mapString = numArray.map(data => data.toString())
+            
+        //     return mapString
+        // }
+        // console.log(NumToString());
+
+        // 3 解決以上問題，可以用 if else
+        // const NumToString = (numArray) => {
+        //     if(!numArray){
+        //         numArray = []
+        //     }
+
+        //     const mapString = numArray.map(data => data.toString())
+            
+        //     return mapString
+        // }
+        // console.log(NumToString());
+
+        // 4 用解構賦值的方始解決，給予預設值，可以排除基本錯誤
+        const NumToString = (numArray = []) => {
+            const mapString = numArray.map(data => data.toString())
+            
+            return mapString
+        }
+        console.log(NumToString());
+        console.log(NumToString([111,222,333,444,555]));
+        
+    </script>
+</body>
+</html>

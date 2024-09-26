@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>object shorthand(物件縮寫)</title>
+</head>
+<body>
+    <script>
+        function circle(x,y,r){
+            return {
+                x,  // x: x,
+                y,  // y: y,
+                r,  // r: r,
+            }
+        }
+
+        let ans = circle(100,100,50)
+        console.log(ans);
+
+        const man = {
+            name: 'Peter',
+            sayHello: function(){},     // 傳統的函數
+            
+            sayHello(){},     // 函數縮寫(省略「: function」)
+
+            sayHello: () => {},     // 將傳統的函數改成箭頭函數
+
+        }
+        
+   
+    </script>
+</body>
+</html>
