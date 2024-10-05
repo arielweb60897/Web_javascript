@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>import, export, module</title>
+  </head>
+  <body>
+    <!-- 1 -->
+    <!-- <script src="./data.js"></script>
+    <script>
+        console.log(Add);
+        console.log(Add(5, 3));
+    </script> -->
+
+    <!-- 2-1 -->
+    <script type="module">
+      //   import Add from "./data.js"; // 【匯入】
+      //   console.log(Add);
+      //   console.log(Add(5, 3));
+
+      // <!-- 2-2 將 Add 改名-->
+      //     import Add from "./data.js"; // 【匯入】
+      //     console.log(Add);
+      //     console.log(Add(5, 3));
+
+      //   2-3 如果是用 named export 【具名匯出】，就要用 「解構的方式」
+      //   import { Name, Age, SayHello, sayHi } from "./data.js";
+      //   console.log(Name);
+      //   console.log(Age);
+      //   console.log(SayHello());
+      //   console.log(sayHi());
+
+      //   2-4 整合在一起
+      import Add, { Name, Age, SayHello, sayHi } from "./data.js";
+      console.log(Name);
+      console.log(Age);
+      console.log(SayHello());
+      console.log(sayHi());
+      console.log(sayHiHi()); //沒有寫在【匯出】不讓【匯入】
+
+      console.log(Add(50, 13));
+      console.log(Add(`abc`, 123));
+      console.log(Add(`$`, 123));
+    </script>
+  </body>
+</html>

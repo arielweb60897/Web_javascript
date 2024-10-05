@@ -47,6 +47,22 @@ function doFirst() {
   showCalendar(firstDay, monthDate);
   // console.log(showCalendar);
 }
+function showCalendar(firstDay, monthDate) {
+  let amount = firstDay + monthDate;
+  let calendar = document.querySelector("#calendar");
+
+  for (let i = 0; i < amount; i++) {
+    if (i % 7 == 0) {
+      let week = document.createElement("tr");
+      calendar.appendChild(week);
+    }
+    let day = document.createElement("td");
+    if (i >= firstDay) {
+      day.innerText = i - firstDay + 1;
+    }
+    week.appendChild(day);
+  }
+}
 window.addEventListener("load", doFirst);
 
 // 函數三部曲: 宣告、定義、呼叫
