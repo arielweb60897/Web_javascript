@@ -1,7 +1,7 @@
 function doFirst() {
   // 今天是 2024 年 9 月 26 日
   let YYYY = new Date().getFullYear(); // 2024
-  let MM = new Date().getMonth() + 1; // 9
+  let MM = new Date().getMonth() + 1; // 9 ;月份從 0 開始所以要加1
 
   // 年的選單
   let year = document.querySelector("#year");
@@ -13,15 +13,17 @@ function doFirst() {
 
     // step 2: 將該標籤的屬性和方法先寫好
     if (i == YYYY) {
+      //YYYY=今年2024，如果 i = 2024 則 selected 為真 -->亦指預選 2024
+      //<option value="2004" selected>2004</option>
       option.selected = true; // 預選當前年份
     }
     option.value = i; // 設定選項的值
     option.innerText = i; // 設定顯示的文本
+    //<option value="2004">2004</option>
 
     // step 3: 找到爸爸，加進去
     year.appendChild(option);
   }
-
   // 月的選單
   let month = document.querySelector("#month");
 
@@ -41,11 +43,13 @@ function doFirst() {
   }
 
   // 判斷當月的 1 號是星期幾 getDay = 星期幾
-  //new Date(YYYY, MM - 1, 1) 會創建 YYYY 年 MM - 1 月的第一天
+  //MM - 1 = 8 = 9 月
+  // let firstDay = new Date(2024, 8, 1).getDay()=2024/9 第一天為周日;
   let firstDay = new Date(YYYY, MM - 1, 1).getDay();
 
   // 判斷當月一共有幾天 getDate = 幾號
   //new Date(YYYY, MM, 0) 用 0 作為日期會回到前一個月的最後一天。
+  //MM = 9 = 10 月 的 0 就是 9 月的最後一天
   let monthDate = new Date(YYYY, MM, 0).getDate();
   // console.log(monthDate);
 

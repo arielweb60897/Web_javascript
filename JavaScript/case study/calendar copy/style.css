@@ -1,0 +1,17 @@
+*{
+    font: 20px Consolas;
+}
+body{
+    background-color: #ccc;
+}
+table,tr,td{
+    text-align: center;
+    border: 1px solid #888;
+    border-collapse: collapse;
+}
+td{
+    width: 50px;
+}
+div{
+    margin: 10px;
+}
