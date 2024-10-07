@@ -4,16 +4,22 @@
     <meta charset="UTF-8" />
     <title>jQuery</title>
     <!-- <script src="./js/jquery-3.7.1.js"></script> -->
+    <!--⬇⬇⬇ 可以整包帶走⬇⬇⬇ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
       // $(選取內容).處理方式( );
-      //document(物件) ; ready (事件) ; function(函數)
+      //document (物件) ; ready (事件) ; function(處理函數)
       $(document).ready(function () {
-        $("h1").css("color", "red");
+        // $("#theText").text("Does it make sense?");
+        // getter
+        // let ans = $("#theText").text();
+        // console.log(ans);
+
+        $("#theText").html(`<h1>Does it make sense?</h1>`);
       });
     </script>
   </head>
   <body>
-    <h1>Lorem ipsum dolor sit amet.</h1>
+    <div id="theText">Lorem ipsum dolor sit amet</div>
   </body>
 </html>

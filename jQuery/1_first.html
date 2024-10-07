@@ -10,19 +10,11 @@
       // $(選取內容).處理方式( );
       //document (物件) ; ready (事件) ; function(處理函數)
       $(document).ready(function () {
-        // $("h1").css("color", "red");
-        //img (物件) ; click (事件) ; function(處理函數) => 會在整個網頁 (DOM) 完全加載完畢後執行裡面的函式
-        $("img").click(function () {
-          //this 只有被按的 img 才消失
-          $(this).hide();
-        });
+        $("h1").css("color", "red");
       });
     </script>
   </head>
   <body>
-    <!-- <h1>Lorem ipsum dolor sit amet.</h1> -->
-    <img src="https://picsum.photos/300/200/?random=1" />
-    <img src="https://picsum.photos/300/200/?random=2" />
-    <img src="https://picsum.photos/300/200/?random=3" />
+    <h1>Lorem ipsum dolor sit amet.</h1>
   </body>
 </html>

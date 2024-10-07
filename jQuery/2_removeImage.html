@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script>
+      // $(選取內容).處理方式( )
+      $(document).ready(function () {
+        //img (物件) ; click (事件) ; function(處理函數) => 會在整個網頁 (DOM) 完全加載完畢後執行裡面的函式
+        $("img").click(function () {
+          //this 只有被按的 img 才消失
+          $(this).hide();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <img src="../images/small/pic1.gif" alt="" />
+    <img src="../images/small/pic2.gif" alt="" />
+    <img src="../images/small/pic3.gif" alt="" />
+  </body>
+</html>
