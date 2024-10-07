@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>use JSON</title>
+    <style>
+        h1{
+            font-size: 18px;
+        }
+        img{
+            width: 95%;
+        }
+        .book{
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 250px;
+            height: 380px;
+            margin: 10px;
+            padding: 10px;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <!-- 
+        <div class="book">
+            <a href="https://www.tenlong.com.tw/products/9789864769919">
+                <img src="https://cf-assets2.tenlong.com.tw/products/images/000/129/126/webp/9789864769919.webp?1547633622">
+            </a>
+            <h1>CSS 大全, 4/e</h1>
+            <p>Eric A. Meyer & Estelle Weyl</p>
+        </div>  
+        -->
+    </div>
+
+    <script>
+        // fetch('資料的路徑+檔名').then(function(res){})
+        // fetch('資料的路徑+檔名').then(res => {})
+
+        // fetch('./bookData.json').then(res => {
+        //     // console.log(res)            
+        //     // console.log(res.json())  
+        //     return res.json()          
+        // }).then(json => {
+        //     console.log(json)            
+        // })
+
+        fetch('./bookData.json')
+            .then(res => res.json())
+            .then(json => {
+                console.log(json)
+                
+                let feedback = ''
+                
+                for(let i = 0; i < json.length; i++){
+                    feedback += `
+                    <div class="book">
+                        <a href="${json[i].url}">
+                            <img src="${json[i].image}">
+                        </a>
+                        <h1>${json[i].title}</h1>
+                        <p>${json[i].author}</p>
+                    </div>
+                    `
+                }
+
+                document.querySelector(`#box`).innerHTML = feedback
+            })
+    </script>
+</body>
+</html>

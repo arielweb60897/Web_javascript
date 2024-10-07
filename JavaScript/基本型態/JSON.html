@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON(JavaScript Object Notation) </title>
+</head>
+<body>
+    <script>
+        1 陣列(Array)放進物件(Object)裡
+            // const obj = {
+            //     key: [],
+            // }
+            const classmate = {
+                TID201: [
+                    {name: 'Andy', age: 23},
+                    {name: 'Brian', age: 25},
+                    {name: 'Carl', age: 21},
+                    {name: 'Dale', age: 25},
+                    {name: 'Eric', age: 22},
+                ],
+            }
+            console.log(classmate)              // 物件(Object)
+            console.log(classmate.TID201)       // 陣列(Array)
+            console.log(classmate.TID201[1])    // 物件(Object)
+            console.log(classmate.TID201[1].name)    // Brian
+
+            JSON 格式: 
+            {
+                "TID201":[
+                    {
+                        "name":"Andy",
+                        "age":23
+                    },
+                    {
+                        "name":"Brian",
+                        "age":25
+                    },
+                    {
+                        "name":"Carl",
+                        "age":21
+                    },
+                    {
+                        "name":"Dale",
+                        "age":25
+                    },
+                    {
+                        "name":"Eric",
+                        "age":22
+                    }
+                ]
+            }
+            
+
+
+        2 物件(Object)放進陣列(Array)裡
+            // const arr = [
+            //     {},
+            //     {},
+            //     {},
+            // ]
+
+            const friends = [
+                {name: 'Andy', age: 23},
+                {name: 'Brian', age: 25},
+                {name: 'Carl', age: 21},
+                {name: 'Dale', age: 25},
+                {name: 'Eric', age: 22},
+            ]
+
+            console.log(friends)    // 陣列(Array)
+            console.log(friends[2])    // 物件(Object)
+            console.log(friends[2].name)    // Carl
+
+            JSON 格式: 
+            [
+                {
+                    "name":"Andy",
+                    "age":23
+                },
+                {
+                    "name":"Brian",
+                    "age":25
+                },
+                {
+                    "name":"Carl",
+                    "age":21
+                },
+                {
+                    "name":"Dale",
+                    "age":25
+                },
+                {
+                    "name":"Eric",
+                    "age":22
+                }
+            ]
+
+            3 轉換
+                3-1 將「JavaScript 物件」轉換成 「JSON 格式」
+                語法: JSON.stringify(JavaScript 物件)
+                const man = {
+                    name: 'Peter',
+                    age: 40,
+                    gender: 'male',
+                    favoriateColor: ['black','gray','white'],
+                    car: {
+                        make: 'BMW',
+                        mode: 'X5',
+                        year: 2022,
+                    },
+                    retired: false,
+                }
+
+                console.log(man)
+                console.log(JSON.stringify(man))        
+                // {"name":"Peter","age":40,"gender":"male","favoriateColor":["black","gray","white"],"car":{"make":"BMW","mode":"X5","year":2022},"retired":false}      
+
+
+                3-2 將「JSON 格式」轉換成 「JavaScript 物件」
+                語法: JSON.parse(JSON 格式)
+                將「JSON 格式」放進單引號或反引號裡
+
+                let json = `{"name":"Peter","age":40,"gender":"male","favoriateColor":["black","gray","white"],"car":{"make":"BMW","mode":"X5","year":2022},"retired":false}`
+
+                console.log(JSON.parse(json))
+                // {name: 'Peter', age: 40, gender: 'male', favoriateColor: Array(3), car: {…}, …}
+                        
+    </script>
+</body>
+</html>

@@ -64,44 +64,44 @@ function showCalendar(firstDay, monthDate) {
 
   for (let i = 0; i < amount; i++) {
     if (i % 7 == 0) {
-      let week = document.createElement("tr");
-      calendar.appendChild(week);
+      // let week = document.createElement('tr')
+      // calendar.appendChild(week)
 
-      // trWeek = calendar.appendChild(document.createElement("tr"));
+      trWeek = calendar.appendChild(document.createElement("tr"));
     }
-    //當月的 1 號是星期日
-    // if (i < firstDay) {
-    //   tdDate = trWeek.appendChild(document.createElement("td"));
-    //   tdDate.innerText = "";
-    // } else {
-    //   // date = document.createElement('td')
-    //   // trWeek.appendChild(date)
-    //   tdDate = trWeek.appendChild(document.createElement("td"));
-    //   tdDate.innerText = i - firstDay + 1;
-    // }
+    //當 i 小於 firstDay = 每個月第一天前面的空格
+    if (i < firstDay) {
+      tdDate = trWeek.appendChild(document.createElement("td"));
+      tdDate.innerText = "";
+    } else {
+      // date = document.createElement('td')
+      // trWeek.appendChild(date)
+      tdDate = trWeek.appendChild(document.createElement("td"));
+      tdDate.innerText = i - firstDay + 1; //如果 firstDay 是 2（表示這個月的第一天是星期二），當 i 等於 2 時，innerText 將是 1，表示這是這個月的第一天；當 i 等於 3 時，innerText 將是 2，依此類推。
+    }
   }
 }
-// function changeCalendar() {
-//   // 清除原來的月曆
-//   let calendar = document.querySelector("#calendar");
-//   let childLength = calendar.childNodes.length - 1;
+function changeCalendar() {
+  // 清除原來的月曆
+  let calendar = document.querySelector("#calendar");
+  let childLength = calendar.childNodes.length - 1;
 
-//   for (let i = 2; i <= childLength; i++) {
-//     calendar.childNodes[i].innerHTML = "";
-//   }
+  for (let i = 2; i <= childLength; i++) {
+    calendar.childNodes[i].innerHTML = "";
+  }
 
-//   // 產生新的月曆
-//   let chooseYear = document.querySelector("#year").value;
-//   let chooseMonth = document.querySelector("#month").value;
+  // 產生新的月曆
+  let chooseYear = document.querySelector("#year").value;
+  let chooseMonth = document.querySelector("#month").value;
 
-//   // 重選之後的那個月的 1 號是星期幾
-//   let firstDay = new Date(chooseYear, chooseMonth - 1, 1).getDay();
+  // 重選之後的那個月的 1 號是星期幾
+  let firstDay = new Date(chooseYear, chooseMonth - 1, 1).getDay();
 
-//   // 重選之後的那個月一共有幾天
-//   let monthDate = new Date(chooseYear, chooseMonth, 0).getDate();
+  // 重選之後的那個月一共有幾天
+  let monthDate = new Date(chooseYear, chooseMonth, 0).getDate();
 
-//   showCalendar(firstDay, monthDate);
-// }
+  showCalendar(firstDay, monthDate);
+}
 window.addEventListener("load", doFirst);
 
 // 函數三部曲: 宣告、定義、呼叫

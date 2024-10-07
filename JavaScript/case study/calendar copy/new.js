@@ -56,11 +56,11 @@ function showCalendar(firstDay, monthDate) {
       let week = document.createElement("tr");
       calendar.appendChild(week);
     }
-    let day = document.createElement("td");
-    if (i >= firstDay) {
-      day.innerText = i - firstDay + 1;
+    if (i < firstDay) {
+      let tdDate = document.createElement("td");
+      tdDate.innerText = "";
+    } else {
     }
-    week.appendChild(day);
   }
 }
 window.addEventListener("load", doFirst);

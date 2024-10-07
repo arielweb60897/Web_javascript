@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Array prototype</title>
+  </head>
+  <body>
+    <script>
+      console.log(
+        "--------every(): 測試內容是符合條件(傳回值為 true / false)---------"
+      );
+      const scores = [59, 68, 55, 100, 90, 98, 77, 15];
+      //   const scores = [68, 85, 90, 98, 77, 65];
+
+      //   scores.every(callback); //陣列的方法
+      //   callback function:函數參數裡呼叫的函數
+
+      // let resule =scores.every(function(data){})
+      // const Add = function(){ ..... }     // IIFE
+      // const Add = () => { ..... }         // IIFE + 箭頭函數
+      let result = scores.every((data) => data >= 60);
+      console.log(`every(): ` + result);
+
+      //   如果用 for 迴圈寫
+      //   let pass = true;
+      //   for (let i = 0; i < scores.length; i++) {
+      //     if (scores[i] < 60) {
+      //       pass = false;
+      //     }
+      //     if (pass == true) {
+      //       console.log(pass);
+      //     } else {
+      //       console.log(pass);
+      //     }
+      //   }
+      console.log(
+        "--------find(): 尋找符合條件的第一個(傳回值為符合條件的第一個或 undefined)---------"
+      );
+      resule = scores.find((data) => data >= 60); //不寫 let 同一個程式可以共用
+      console.log(`find():` + resule); //印出 68 (第一個符合大於 60 數值)  //沒找到: 印出 undefine
+
+      if (scores.find((data) => data >= 100) == undefined) {
+        console.log(`全班都沒有滿分!!`);
+      } else {
+        console.log(`有同學滿分耶!!!`);
+      }
+
+      console.log("--------some():任何一個通過即可 ---------");
+      if (scores.some((data) => data > 100)) {
+        console.log(`全班的成績都沒有超過 100 分!!`);
+      } else {
+        console.log(`有同學超過 100 分耶!!`);
+      }
+
+      console.log(`--------- forEach(): 瀏覽陣列裡的每一個元素 ---------`);
+      result = [];
+      scores.forEach((data) => {
+        if (data < 60) {
+          result.push(data);
+        }
+      });
+
+      console.log(`不及格的分數有: ` + result);
+
+      console.log(
+        "-------map():陣列裡的每一個元素做相同的處理(傳回值是陣列) ---------"
+      );
+
+      resule = scores.map((data) => data + 10);
+      console.log(`大家都加 10 分` + resule); //大家都加 10 分69,78,65,110,100,108,87,25
+
+      let nums = [1, 2, 3, 4, 5, 6, 7];
+      resule = nums.map((data) => "A100" + data);
+      console.log(`序號前面加上「A100」:` + resule); //序號前面加上「A100」:A1001,A1002,A1003,A1004,A1005,A1006,A1007
+
+      console.log("-------reduce():陣列裡的每個元素做累加 ---------");
+      //   resule = scores.reduce((加總, 值) => (累計));
+      resule = scores.reduce((sum, data) => (sum += data));
+      console.log(`加總的結果` + resule); //加總的結果562
+
+      resule = scores.reduce((sum, data) => (sum += data));
+      console.log(`總平均` + resule / scores.length); //總平均70.25
+
+      console.log("-------slice(): ---------");
+      //[1, 2, 3, 4, 5, 6, 7];
+      //   console.log(nums.slice(index form));
+      console.log(nums.slice(2)); // [3, 4, 5, 6, 7]
+
+      //   console.log(nums.slice(index form,index to));
+      console.log(nums.slice(2, 5)); //[3, 4, 5]
+      console.log(nums); //[1, 2, 3, 4, 5, 6, 7]
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>for of 迴圈</title>
+  </head>
+  <body>
+    <script>
+      const foods = ["apple", "orange", "vegitables", "rice", "bagel"];
+      // foods[0] ,foods[1],foods[2], foods[3], foods[4]
+
+      console.log(`----------一般的 for 迴圈--------`);
+      for (let i = 0; i < foods.length; i++) {
+        console.log(foods[i]);
+      }
+
+      console.log(`----------Array 使用 for in 迴圈--------`);
+      for (let i in foods) {
+        console.log(foods[i]);
+      }
+
+      console.log(`----------Object 使用 for in 迴圈--------`);
+      const man = {
+        name: "Peter",
+        age: 40,
+        gender: "male",
+        favoriateColor: ["black", "gray", "white"],
+        car: {
+          make: "BMW",
+          mode: "X5",
+          year: 2022,
+        },
+        retired: false,
+      };
+      for (let key in man) {
+        // console.log(key)
+        console.log(man[key]);
+      }
+
+      console.log(`----------for of 迴圈(Array 專用)--------`);
+      for (let item of foods) {
+        console.log(item);
+      }
+    </script>
+  </body>
+</html>
