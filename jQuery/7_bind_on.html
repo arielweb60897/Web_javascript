@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery</title>
+    <style>
+      .highlight {
+        background-color: yellow;
+      }
+    </style>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        // 語法: $('物件').事件(處理函數).事件(處理函數)
+        // mouseenter 滑鼠滑過去 ; mouseleave 滑鼠移開
+        // $('p>span').mouseenter().mouseleave()
+
+        // $("p>span")
+        //   .mouseenter(function () {
+        //     $(this).addClass("highlight");
+        //     })
+        //     .mouseleave(function () {
+        //         $(this).removeClass("highlight");
+        //         });
+
+        //   ---------------bind----------------
+        // 語法: $('物件').bind('事件', 處理函數 )
+
+        // $("p>span")
+        //   .bind("mouseenter", function () {
+        //     $(this).addClass("highlight");
+        //   })
+        //   .bind("mouseleave", function () {
+        //     $(this).removeClass("highlight");
+        //   });
+
+        // ---------- on ----------
+        // 語法 1: $('物件').on('事件',處理函數)
+        // $('p>span').on('mouseenter',function(){
+        //     $(this).addClass('highlight')
+        // }).on('mouseleave',function(){
+        //     $(this).removeClass('highlight')
+        // })
+
+        // $('p>span').on('mouseenter mouseleave',function(){
+        //     $(this).toggleClass('highlight')
+        // })
+
+        // 語法 2: $(document).on('事件','物件',處理函數)
+        $(document).on("mouseenter mouseleave", "p>span", function () {
+          $(this).toggleClass("highlight");
+        });
+
+        // Usage: $('物件').on('事件1 事件2',處理函數)
+        //    $(window).on('resize',處理函數).on('scroll',處理函數)
+        //    $(window).on('resize scroll',處理函數)
+      });
+    </script>
+  </head>
+
+  <body>
+    <p><span>Lorem ipsum dolor sit amet.</span></p>
+  </body>
+</html>

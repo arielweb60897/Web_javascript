@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      #topMessage {
+        background-color: #666;
+        font: 20px Tahoma;
+        color: #fff;
+        text-align: center;
+        align-content: center;
+        height: 50px;
+        display: none;
+      }
+    </style>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script>
+      $(function () {
+        // slideDome 慢慢掉下來 1000 毫秒 = 1 秒半 沒寫是 400 毫秒
+        $("#topMessage")
+          .slideDown(2000)
+          .click(function () {
+            $(this).slideUp(1000);
+          });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="topMessage">
+      We see you're not logged in. Do you want to <a href="#">sign up</a>?
+    </div>
+  </body>
+</html>

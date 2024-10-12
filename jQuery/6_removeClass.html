@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery</title>
+    <style>
+      .highlight {
+        background-color: yellow;
+      }
+    </style>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script>
+      // JavaScript 搜尋的語法
+      // Array ==> includes()
+      // String ==> includes() | search(new RegExp()) | search(//)
+
+      $(document).ready(function () {
+        // keyup 處理輸入框的即時反饋
+        $("#search").keyup(function () {
+          let name = $(this).val();
+          // console.log(name); //測試是否會回傳輸入值
+
+          //如果不是空字串，才執行 highlight
+          if ($(this).val() != "") {
+            $(`ul>li>span`).removeClass("highlight"); //先移除 highlight
+            $(`ul>li>span:contains(${name})`).addClass("highlight"); //傳回的值再加上 highlight
+          }
+        });
+        // 當用戶在搜尋框中輸入內容時，會觸發 input 事件。
+        // 透過 $(this).val() 獲取用戶輸入的文本，並將其存儲在變數 name 中。
+        // 先移除所有 <span> 的 highlight 類，然後通過 :contains() 方法選取包含該文本的 <span> 元素並添加 highlight 類。
+
+        // 2 如何使用 jQuery 沒有的 input 事件
+        // $('#search').on('input',function(){
+        //     let name = $(this).val()
+        //     // console.log(name);
+
+        //     $(`ul>li>span`).removeClass('highlight')
+
+        //     if($(this).val() != ''){
+        //         $(`ul>li>span:contains(${name})`).addClass('highlight')
+        //     }
+        // })
+
+        // 2 如何使用 search 事件
+        $("#search").on("keyup search", function () {
+          let name = $(this).val();
+
+          $(`ul>li>span`).removeClass("highlight");
+
+          if ($(this).val() != "") {
+            $(`ul>li>span:contains(${name})`).addClass("highlight");
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <p>
+      <label for="search">Search: </label>
+      <input type="search" id="search" />
+    </p>
+    <ul>
+      <li><span>Ann Hathaway</span></li>
+      <li><span>Robert De Niro</span></li>
+      <li><span>Bruce Willis</span></li>
+      <li><span>Cybill Shepherd</span></li>
+      <li><span>Robert Readford</span></li>
+      <li><span>Maryl Streep</span></li>
+      <li><span>Bred Pitt</span></li>
+      <li><span>Robin Williams</span></li>
+      <li><span>Annete Bening</span></li>
+      <li><span>Robert Downey Jr.</span></li>
+      <li><span>Demi Moore</span></li>
+      <li><span>Angelina Jolie</span></li>
+    </ul>
+  </body>
+</html>

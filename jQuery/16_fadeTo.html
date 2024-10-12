@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script>
+      $(function () {
+        // opacity 是 CSS 屬性，用來設定元素的透明度 0
+        // 0 表示完全透明（不可見）
+        // 1 表示完全不透明（完全可見）
+        $("img")
+          .css("opacity", 0.5)
+          .mouseover(function () {
+            $(this).fadeTo(300, 1);
+            $("img").not(this).fadeTo(300, 0.5);
+            // 其他的: 就是全部〔$("img")〕，除了 this〔not(this)〕 以外
+          });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div>
+      <img src="https://picsum.photos/200/200/?random=10" />
+      <img src="https://picsum.photos/200/200/?random=10" />
+      <img src="https://picsum.photos/200/200/?random=10" />
+      <img src="https://picsum.photos/200/200/?random=10" />
+      <img src="https://picsum.photos/200/200/?random=10" />
+      <img src="https://picsum.photos/200/200/?random=10" />
+      <img src="https://picsum.photos/200/200/?random=10" />
+      <img src="https://picsum.photos/200/200/?random=10" />
+      <img src="https://picsum.photos/200/200/?random=10" />
+    </div>
+  </body>
+</html>

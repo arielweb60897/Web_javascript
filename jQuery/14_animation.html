@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery</title>
+    <style>
+      .myPhoto {
+        width: 80px;
+      }
+      #imgBoard {
+        width: 80px;
+        background-color: #aaa;
+        padding: 5px 30px;
+
+        position: absolute;
+        left: -110px;
+      }
+    </style>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script src="./js/jquery-ui.js"></script>
+    <script>
+      $(function () {
+        // $("#imgBoard").mouseenter(function () {});
+        // $("#imgBoard").hover();
+        // $("#imgBoard").hover(function () {},function(){});
+
+        $("#imgBoard")
+          .mouseover(function () {})
+          .mouseout(function () {});
+
+        // $('#imgBoard').hover()
+        // $('#imgBoard').hover(function(){}, function(){})
+        $("#imgBoard").hover(
+          function () {
+            // $(this).css('left', 0)
+            // 語法: $(this).animate({CSS 屬性}, duration, easing, callback)
+            $(this).stop(true).animate(
+              {
+                left: 0,
+                // backgroundColor: 'red',
+              },
+              1500,
+              "easeInQuad"
+            );
+          },
+          function () {
+            $(this).animate(
+              {
+                left: "-110px",
+              },
+              2000,
+              "easeOutBounce"
+            );
+          }
+        );
+      });
+    </script>
+  </head>
+
+  <body>
+    <h2>Mouseover the gray strip on the left edge.</h2>
+    <div id="imgBoard">
+      <img src="https://picsum.photos/100/100/?random=1" class="imgPhoto" />
+      <img src="https://picsum.photos/100/100/?random=2" class="imgPhoto" />
+      <img src="https://picsum.photos/100/100/?random=3" class="imgPhoto" />
+      <img src="https://picsum.photos/100/100/?random=4" class="imgPhoto" />
+    </div>
+  </body>
+</html>
