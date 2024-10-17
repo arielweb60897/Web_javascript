@@ -20,9 +20,9 @@
           let name = $(this).val();
           // console.log(name); //測試是否會回傳輸入值
 
+          $(`ul>li>span`).removeClass("highlight"); //先移除 highlight
           //如果不是空字串，才執行 highlight
           if ($(this).val() != "") {
-            $(`ul>li>span`).removeClass("highlight"); //先移除 highlight
             $(`ul>li>span:contains(${name})`).addClass("highlight"); //傳回的值再加上 highlight
           }
         });
@@ -31,26 +31,20 @@
         // 先移除所有 <span> 的 highlight 類，然後通過 :contains() 方法選取包含該文本的 <span> 元素並添加 highlight 類。
 
         // 2 如何使用 jQuery 沒有的 input 事件
-        // $('#search').on('input',function(){
-        //     let name = $(this).val()
-        //     // console.log(name);
 
-        //     $(`ul>li>span`).removeClass('highlight')
+        $("#search").on("input", function () {
+          let name = $(this).val();
+          $(`ul>li>span`).removeClass("highlight"); //先移除 highlight
+          if ($(this).val() != "") {
+            $(`ul>li>span:contains(${name})`).addClass("highlight"); //傳回的值再加上 highlight
+          }
+        });
 
-        //     if($(this).val() != ''){
-        //         $(`ul>li>span:contains(${name})`).addClass('highlight')
-        //     }
-        // })
-
-        // 2 如何使用 search 事件
-        //keyup 是選取輸入事件，search 是按叉叉消除事件
         $("#search").on("keyup search", function () {
           let name = $(this).val();
-
-          $(`ul>li>span`).removeClass("highlight");
-
+          $(`ul>li>span`).removeClass("highlight"); //先移除 highlight
           if ($(this).val() != "") {
-            $(`ul>li>span:contains(${name})`).addClass("highlight");
+            $(`ul>li>span:contains(${name})`).addClass("highlight"); //傳回的值再加上 highlight
           }
         });
       });

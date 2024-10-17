@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery</title>
+    <style>
+      .menu {
+        list-style: none;
+        padding-inline-start: 20px;
+        font-family: Calibri;
+      }
+      .bold {
+        font: bold 20px Calibri;
+      }
+    </style>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script>
+      $(function () {
+        // name > li > 裡面的第一個小孩
+        // append 動態添加元素
+        // $(`.name li:nth-child(1)`).append(`(First)`);
+        // $(`.name li:eq(0)`).append(`(First)`);
+        // $(`.name li:first`).append(`(First)`);
+
+        // $(物件).find(子孫).處理方式()
+        // $(`.name`).find(`li`).first().append(`(First)`);
+        // $(`.name`).find(`li`).first().next().append(`(First)`);
+        // $(`.name`).find(`li`).last().append(`(First)`);
+
+        //=============
+        // 追加class bold(字體變粗) 沒被點選的 li 藏起來(hide)
+        // $('.menu').find('li').first().addClass('bold')
+        // $('.menu').find('li').first().addClass('bold').nextAll().hide()
+        // $('.menu').find('li').first().addClass('bold').click().nextAll().hide()
+
+        $(".menu")
+          .find("li")
+          .first()
+          .addClass("bold")
+          .click(function () {
+            // show-->直接出現
+            // $(this).nextAll().show();
+            // toggle-->show hide 自行決定
+            // $(this).nextAll().toggle();
+            // slideToggle-->慢慢滑出來(show)或藏起來(hide)
+            $(this).nextAll().slideToggle(8000);
+          })
+          .nextAll()
+          .hide();
+      });
+    </script>
+  </head>
+
+  <body>
+    <ul class="name">
+      <li>Alex</li>
+      <li>Brian</li>
+      <li>Carl</li>
+      <li>Dale</li>
+      <li>Eric</li>
+    </ul>
+    <hr />
+
+    <ul class="menu">
+      <li>User(會員中心)</li>
+      <li>Setting</li>
+      <li>Log out</li>
+      <li>Delete Account</li>
+      <li>Something else</li>
+      <li>Do nothing</li>
+    </ul>
+  </body>
+</html>

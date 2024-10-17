@@ -1,0 +1,51 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+#sliderBoard {
+  /* div */
+  width: 600px;
+  border: 10px dashed #ccc;
+  margin: 50px;
+}
+
+#sliderBoard ul {
+  /* ul */
+  width: 3000px;
+  position: relative;
+}
+
+#sliderBoard li {
+  /* li */
+  width: 600px;
+  height: 400px;
+  font: bold 200px Tahoma;
+  text-align: center;
+
+  /* display: inline-block; */
+  /* 會有神秘空格 */
+  float: left;
+}
+
+#sliderBoard li:nth-child(1) {
+  background-color: red;
+}
+#sliderBoard li:nth-child(2) {
+  background-color: orange;
+}
+#sliderBoard li:nth-child(3) {
+  background-color: yellow;
+}
+#sliderBoard li:nth-child(4) {
+  background-color: greenyellow;
+}
+#sliderBoard li:nth-child(5) {
+  background-color: blue;
+}
+@keyframes slider {
+  0% {
+    left: 0px;
+  }
+}

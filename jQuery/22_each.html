@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery</title>
+    <style>
+      span {
+        color: red;
+      }
+    </style>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script>
+      // $(陣列).each(function(){})
+      // $(陣列).each(function(index,value){})
+      // $.each(陣列,function(){})
+      // $.each(陣列,function(index,value){})
+
+      // $(物件).each(function(){})
+      // $(物件).each(function(key,value){})
+      // $.each(物件,function(){})
+      // $.each(物件,function(key,value){})
+      $(function () {
+        //1
+        // $("#theButton").click(function () {
+        //   //為了做串接，初值空字串
+        //   let theText = "";
+        //   //不只一個就是陣列，有兩個 text
+        //   $(":text").each(function () {
+        //     theText += $(this).val() + "";
+        //   });
+        //   $("#feedback").text(theText);
+        // });
+
+        // 2. 判斷每個欄位是否都有輸入
+        let theText = "";
+        let failed = false; // 假設每個欄位都有輸入
+
+        // 只要有一個空值，就表示失敗 (failed = true; )
+        $(":text").each(function () {
+          if ($(this).val() == "") {
+            failed = true;
+          }
+
+          if (failed == true) {
+            alert(`Fill out all fields.`);
+          } else {
+            alert(`Thanks for filling out all fields.`);
+
+            $(":text").each(function () {
+              theText += $(this).val() + " ";
+            });
+          }
+          $("#feedback").text(theText);
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    (<span>*</span> 為必填欄位)
+    <p>
+      <input type="text" placeholder="first name" /><span>*</span>
+      <br />
+      <input type="text" placeholder="last name" /><span>*</span>
+      <br />
+      <input type="text" placeholder="last name" /><span>*</span>
+      <br />
+      <button id="theButton">Combine</button>
+    </p>
+    <div id="feedback"></div>
+  </body>
+</html>
