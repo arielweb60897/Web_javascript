@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Google Maps JavaScript API</title>
+    <script src="https://maps.google.com/maps/api/js"></script>
+    <style>
+      #map {
+        width: 600px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script>
+      function doFirst() {
+        let area = document.querySelector("#map");
+        let position = new google.maps.LatLng(25.0521646, 121.5432739);
+        let options = {
+          zoom: 16, // 比例
+          center: position, // 中心點
+          mapTypeId: google.maps.MapTypeId.ROADMAP, // 地圖型式
+          //   地圖樣式的常數：
+          //   ROADMAP：平常看到的那樣
+          //   SATELLITE：地圖方塊
+          //   HYBRID：以上兩者的混合圖
+          //   TERRAIN：顯示實際起伏
+        };
+
+        let map = new google.maps.Map(area, options);
+        let marker = new google.maps.Marker({
+          map, // map: map,
+          position, // position: position,
+          // sayHello: function(){}, // sayHello(){},
+
+          // title: `這是哪裡?`,
+          // icon: `../../images/number/dgtp.gif`,
+        });
+        marker.setTitle(`tibame`);
+        marker.setIcon(`../../images/foot.gif`);
+      }
+
+      window.addEventListener("load", doFirst);
+    </script>
+  </body>
+</html>
+<!-- 
+controls
+layers
+services
+-->
+
+<!-- 
+緯度: 25.0521646
+經度: 121.5432739
+準確度: 14.748
+
+緯度: 25.0521593
+經度: 121.5432624
+準確度: 17.576 公尺
+-->

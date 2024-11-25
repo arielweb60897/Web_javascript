@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag & Drop -- image</title>
+    <style>
+        img{
+            max-width: 400px;
+            max-height: 400px;
+        }
+        #dropzone{
+            border: 5px dashed #ccc;
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>    
+    <h2 id="fileName"></h2>
+    <div id="dropzone">
+        <img id="image">
+    </div>
+
+    <script>
+        function doFirst(){
+            // 先跟 HTML 畫面產生關連，再建事件聆聽功能
+            document.querySelector('#dropzone').ondragover = dragOver
+            document.querySelector('#dropzone').ondrop = dropped
+        }
+        function dragOver( e ){
+            e.preventDefault()
+        }
+        function dropped( e ){
+            e.preventDefault()
+
+            let file = e.dataTransfer.files[0]
+            // console.log(file);
+
+            document.querySelector('#fileName').innerText = file.name
+
+            let readFile = new FileReader()
+            readFile.readAsDataURL(file)
+            
+            readFile.addEventListener('load', function(){
+                document.querySelector('#image').src = readFile.result
+            })
+        }
+        window.addEventListener('load',doFirst)
+    </script>
+</body>
+</html>

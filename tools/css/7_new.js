@@ -1,10 +1,19 @@
-function doFirst() {
-  // 先跟 HTML 畫面產生關聯
-  Image = document.querySelector("#image");
-  playButton = document.querySelector("#playButton");
-  puseButton = document.querySelector("#puseButton");
+function doFirst(){
+    // 先跟 HTML 畫面產生關連
+    image = document.querySelector('#image')
+    playButton = document.querySelector('#playButton')
+    pauseButton = document.querySelector('#pauseButton')
 
-  //  再建是建聆聽功能
-  playButton.addEventListener("click", playImage);
-  puseButton.addEventListener("click", puseImage);
+    image.style.animationPlayState = 'paused'
+
+    // 再建事件聆聽功能
+    playButton.addEventListener('click',playImage)
+    pauseButton.addEventListener('click',pauseImage)
 }
+function playImage(){
+    image.style.animationPlayState = 'running'
+}
+function pauseImage(){
+    image.style.animationPlayState = 'paused'
+}
+window.addEventListener('load',doFirst)

@@ -1,0 +1,16 @@
+#leftbox {
+  width: 240px;
+  height: 240px;
+  border: 5px dashed #abc;
+  padding: 10px;
+  margin: 10px;
+  float: left;
+}
+#rightbox {
+  width: 240px;
+  height: 240px;
+  border: 5px dashed #cab;
+  padding: 10px;
+  margin: 10px;
+  float: right;
+}

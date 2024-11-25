@@ -1,0 +1,95 @@
+※ 雲端硬碟
+https://drive.google.com/drive/folders/1c1h5soItUesnyfiniHObOgml863dNTO7?usp=drive_link
+
+※ 歷屆專題
+https://docs.google.com/document/d/13sfem3xs_4eCyGRICab7BgicBTvrZEHJhRvScZQiX0s/mobilebasic
+
+網站範例
+https://tympanus.net/codrops/
+
+※ 免費 + 付費圖庫
+https://www.freepik.com/
+https://unsplash.com/
+https://pixabay.com/
+https://www.pexels.com/zh-tw/  免費商用
+
+假圖
+https://fakeimg.pl/
+
+icon
+https://icons8.com/
+https://fontawesome.com/
+
+svg
+https://undraw.co/  免費商用
+
+Animation
+https://storyset.com/
+
+圖片壓縮工具
+https://compressor.io/
+
+※ 顏色選擇
+https://color.adobe.com/zh/explore
+https://coolors.co/
+
+※ 免費字體
+粉圓體 https://justfont.com/huninn/
+清松手寫體 https://lis.chu.edu.tw/p/406-1052-25210,r11.php?Lang=zh-tw
+
+※ 專題可能用到
+html2canvas
+https://html2canvas.hertzen.com/
+
+統計圖表
+https://c3js.org/
+
+留言板工具
+https://summernote.org/
+https://ckeditor.com/
+
+JSON validator
+https://jsonformatter.curiousconcept.com/
+
+JSON viewer
+https://jsoneditoronline.org/
+
+https://easings.net/
+
+https://roadmap.sh/
+--------------------------------
+線上編輯器
+https://summernote.org/
+https://ckeditor.com/
+
+線上的 mail server
+EmailJS
+https://www.emailjs.com/
+
+動態圖表
+c3.js
+
+第三方支付
+綠界 | 藍新 | 紅陽
+Line Pay API
+Payment Request API
+https://blog.techbridge.cc/2017/10/14/payment-request-api/
+
+產生信用卡卡號
+https://www.getcreditcardnumbers.com/
+
+假資料 fake | dummy JSON data
+https://dummyjson.com/
+https://fakestoreapi.com/
+https://reqres.in/
+
+google 「let's encrypt」可以免費申請 SSL
+
+Youtuber
+CSScoke
+https://www.youtube.com/c/csscoke
+
+Alex 宅幹嘛
+https://www.youtube.com/channel/UCEL8871qFEakpqYpwBSjHNA
+
+

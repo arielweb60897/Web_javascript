@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>jQuery</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+        <style>
+            figure{
+                width: 20%;
+                border: 3px solid transparent;
+                margin: 5px;
+                width: 120px;
+                height: 120px;
+            }
+            figure.active{
+                border: 3px solid maroon;
+            }
+            figure img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            #main{
+                width: 240px;
+                height: 240px;
+            }
+        </style>
+        <script src="./js/jquery-3.7.1.js"></script>
+        
+        <script>
+            $(function(){
+                $('figure').click(function(){
+                    // console.log($(this))     // jQuery 的 selector
+                    // console.log(this)        // JavaScript 的 figure element
+                    // console.log($(this)[0])  // JavaScript 的 figure element
+
+                    // console.log($(this).children())    
+                    // console.log($(this).find('img'))    
+
+                    // console.log($(this).children('img'))    
+                    // console.log($(this).children('img').attr('src'))  
+
+                    // console.log($(this).children('img')[0])    
+                    // console.log($(this).children('img')[0].src)    
+
+                    let picSrc = $(this).children('img').attr('src')
+                    // let picSrc = $(this).children('img')[0].src
+
+                    $('#main').attr('src', picSrc)
+
+                    $(this).addClass('active').siblings().removeClass('active')
+
+                    // $(this).addClass('active')
+                    // 其他的
+                    // $('figure').not(this).removeClass('active')
+                })
+                
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="py-2 text-center">
+                <img id="main" src="../images/Shinnosuke/Shinnosuke2.png">
+            </div>
+            <div class="d-flex justify-content-center">
+                <figure class="active">
+                    <img src="../images/Shinnosuke/Shinnosuke2.png">
+                </figure>
+                <figure>
+                    <img src="../images/Shinnosuke/Shinnosuke1.jpg">
+                </figure>
+                <figure>
+                    <img src="../images/Shinnosuke/Shinnosuke2.jpg">
+                </figure>
+                <figure>
+                    <img src="../images/Shinnosuke/Shinnosuke4.png">
+                </figure>
+                <figure>
+                    <img src="../images/Shinnosuke/Shinnosuke6.png">
+                </figure>
+                <figure>
+                    <img src="../images/Shinnosuke/Shinnosuke7.png">
+                </figure>
+            </div>
+        </div>
+    </body>
+</html>

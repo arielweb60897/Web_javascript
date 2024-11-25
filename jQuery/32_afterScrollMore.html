@@ -1,21 +1,56 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      /* body {
+            background:url()
+          } */
+      #skin {
+        height: 2000px;
+        /* border-right: 1px solid red; */
+      }
+      #skin p {
+        width: 100%;
+        position: fixed;
+        top: 200px;
+        text-align: center;
+        font: 24px tahoma;
+      }
+      .toBottom {
+        color: red;
+      }
+    </style>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script>
+      $(function () {
+        $(window).scroll(function () {
+          //   let scroll_top = $(window).scrollTop();
+          let scroll_top = Math.round($(window).scrollTop());
 
-<head>
-	<meta charset="UTF-8">
-	<title>jQuery</title>
-	<script src="./js/jquery-3.7.1.js"></script>
-	<script>
-		$(function () {
-			
-		})	
-	</script>
-</head>
+          $("#skin span").text(scroll_top); //1431
 
-<body>
+          let window_height = $(window).height(); //585
+          let document_height = $(document).height(); //2016
+          //   console.log(document_height);
+
+          if (scroll_top == document_height - window_height) {
+            $("#skin span").addClass("toBottom");
+          } else {
+            $("#skin span").removeClass("toBottom");
+          }
+        });
+      });
+    </script>
+  </head>
+
+  <body>
     <div id="skin">
-        <p>scrollTop: <span>0</span> px</p>
+      <p>scrollTop: <span>0</span> px</p>
     </div>
-</body>
-
+  </body>
 </html>

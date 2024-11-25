@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File API</title>
+    <style>
+        .box{
+            border: 8px dashed #ccc;
+            width: 300px;
+            height: 300px;
+
+            position: relative;
+        }
+        .add{
+            font: bold 100px Tahoma;
+            color: #ccc;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+
+            /* text-align: center;
+            line-height: 300px; */
+        }
+        .theFile{
+            width: 300px;
+            height: 300px;
+            opacity: 0;
+        }
+        .theImage{
+            width: 100%;
+            height: 100%;
+        }
+
+        .upload{
+            width: 300px;
+            text-align: center;
+            margin: 10px;
+        }
+        button{
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="add">+</div>
+        <input type="file" class="theFile">
+    </div>
+    <div class="upload">
+        <button>upload</button>
+    </div>
+
+    <script>
+        function doFirst(){
+            // 先跟 HTML 畫面產生關連，再建事件聆聽功能
+            document.querySelector('.theFile').onchange = fileChange
+        }
+        function fileChange( e ){
+            // let file = document.querySelector('.theFile').files[0]
+            let file = e.target.files[0]
+            
+            let readFile = new FileReader()
+            readFile.readAsDataURL(file)
+            
+            readFile.addEventListener('load', () => {
+                // 動態新增
+                // 1 先建標籤(或建立 Image 物件)
+                let image = document.createElement('img')
+                // let image = new Image()
+
+                let input = document.createElement('input')
+
+                // 2 將該標籤的屬性和方法先寫好
+                image.src = readFile.result
+                image.className = 'theImage'
+
+                // 3 找到爸爸，加進去
+                let box = document.querySelector('.box')
+                // 先確定爸爸有沒有小孩?
+                // alert(box.childNodes.length)
+
+                // 如果有要先刪除
+                // 寫法 1
+                // while(box.childNodes.length >= 1){
+                //     box.removeChild(box.firstChild)
+                // }
+                // 寫法 2
+                box.innerHTML = ''
+
+                // 再顯示新物件
+                box.appendChild(image)
+            })   
+            
+        }
+        window.addEventListener('load',doFirst)
+
+        // window.onload = function(){}
+        // window.onload = () => {}
+    </script>
+</body>
+</html>

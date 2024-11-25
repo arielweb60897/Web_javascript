@@ -4,17 +4,41 @@
 <head>
 	<meta charset="UTF-8">
 	<title>jQuery</title>
+    <style>
+        .target{
+            background-color: #eee;
+            width: 730px;
+            height: 300px;
+            margin: 10px;
+
+            font: bold 100px Tahoma;
+            text-align: center;
+            color: #fff;
+        }
+        .circle{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 10px;
+
+            display: inline-block;
+        }
+    </style>
 	<script src="./js/jquery-3.7.1.js"></script>
 	<script>
 		$(function () {
-			
+			$('.circle').click(function(){
+                let theColor = $(this).css('backgroundColor')
+
+                $('.target').css('backgroundColor',theColor)
+            })
 		})	
 	</script>
 </head>
 
 <body>
     <div class="container">
-        <div class="target"></div>
+        <div class="target">target</div>
         <div class="colorPicker">
             <div class="circle" style="background-color: red;"></div>
             <div class="circle" style="background-color: orange;"></div>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag & Drop -- video</title>
+    <style>
+        #dropzone{
+            border: 5px dashed #ccc;
+            border-radius: 10px;
+            width: 640px;
+            height: 360px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>    
+    <h2 id="fileName"></h2>
+    <div id="dropzone">
+        <video id="myMovie"></video>
+    </div>
+
+    <script>
+        function doFirst(){
+            // 先跟 HTML 畫面產生關連，再建事件聆聽功能
+            document.querySelector('#dropzone').ondragover = dragOver
+            document.querySelector('#dropzone').ondrop = dropped
+        }
+        function dragOver( e ){
+            e.preventDefault()
+        }
+        function dropped( e ){
+            e.preventDefault()
+
+            let file = e.dataTransfer.files[0]
+            // console.log(file);
+
+            document.querySelector('#fileName').innerText = file.name
+
+            let readFile = new FileReader()
+            readFile.readAsDataURL(file)
+            
+            readFile.addEventListener('load', function(){
+                let myMovie = document.querySelector('#myMovie')
+                myMovie.src = readFile.result
+                myMovie.controls = true
+            })
+        }
+        window.addEventListener('load',doFirst)
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File API</title>
+</head>
+<body>
+    <input type="file" id="theFile">
+    <p>
+        <textarea id="fileInfo" rows="5" cols="70"></textarea>
+    </p>
+    <h2>Content here</h2>
+    <p>
+        <textarea id="fileContent" rows="25" cols="70"></textarea>
+    </p>
+
+    <script>
+        function doFirst(){
+        // 先跟 HTML 畫面產生關連，再建事件聆聽功能
+            document.querySelector('#theFile').onchange = fileChange
+        }
+        function fileChange(){
+            let file = document.querySelector('#theFile').files[0]
+            // console.log(file);
+
+            let message = ''
+            message += `File name: ${file.name}\n`
+            message += `File type: ${file.type}\n`
+            message += `File size: ${file.size} byte\n`
+            message += `Last Modified: ${file.lastModifiedDate}\n`
+            document.querySelector('#fileInfo').value = message
+            
+            // ===============
+            let readFile = new FileReader()
+            readFile.readAsText(file)
+            
+            readFile.addEventListener('load', function(){
+                document.querySelector('#fileContent').value = readFile.result
+            })
+        }
+        window.addEventListener('load',doFirst)
+    </script>
+</body>
+</html>

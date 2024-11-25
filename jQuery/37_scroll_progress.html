@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <title>jQuery</title>
+    <style>
+        body{
+            height: 300vh;
+        }
+        .read_progress{
+            position: fixed;
+            left:0;
+            right:0;
+            top:0;
+            height: 20px;
+            background: #ccc;
+        }
+        .read_progress_bar{
+            height: 20px;
+            background: red;
+            width: 0%;
+            text-align: center;
+            font: bold 16px Tahoma;
+        }
+    </style>   
+</head>
+<body>
+    <div class="read_progress">
+        <div id="read_progress_bar" class="read_progress_bar"></div>
+    </div>
+
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script>
+        let body_height = $('body').height()
+        let window_height = $(window).height()
+
+        // console.log(`body height: ${body_height}`);
+        // console.log(`window height: ${window_height}`);
+
+        $(window).on('scroll', function(){
+            let scroll_top = $(window).scrollTop()
+            // console.log(`window scrollTop: ${scroll_top}`);
+
+            let scrollPercent = Math.round(scroll_top / (body_height - window_height) * 100) + '%'
+            // console.log(`scroll percent: ${scrollPercent}`);
+
+            $('#read_progress_bar').width(scrollPercent).text(scrollPercent)
+        })
+        
+    </script>
+ </body>
+</html>
+

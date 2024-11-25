@@ -1,30 +1,62 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery</title>
+    <style>
+      * {
+        list-style: none;
+      }
+      img {
+        height: 300px;
+      }
+      ul li {
+        height: 300px;
+        display: inline-block;
+        margin: 5px;
+      }
+      ul li.active {
+        border: 5px solid maroon;
+      }
+      #code {
+        width: 500px;
+        height: 200px;
+      }
+    </style>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script>
+      $(function () {
+        $("ul li").click(function () {
+          //   $(this).addClass("active");
+          // 被按的以外移除 active ( 紅框框 )
+          //   $("ul li").not(this).removeClass("active");
+          // 自己決定要不要加 active ( 紅框框 )
+          $(this).toggleClass("active");
 
-<head>
-	<meta charset="UTF-8">
-	<title>jQuery</title>
-	<script src="./js/jquery-3.7.1.js"></script>
-	<script>
-		$(function () {
-			
-		})	
-	</script>
-</head>
+          let code = ""; //  用字串串接，所以要先寫空值
+          $("ul li.active").each(function () {
+            let htmlCode = $(this).html();
+            code += htmlCode;
+            // 字串接好後框框中印出來
+            $("#code").val(code);
+          });
+        });
+      });
+    </script>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <ul>
-            <li><img src="../images/washDrawing/001.JPG"></li>
-            <li><img src="../images/washDrawing/002.JPG"></li>
-            <li><img src="../images/washDrawing/007.JPG"></li>
-            <li><img src="../images/washDrawing/018.JPG"></li>
-            <li><img src="../images/washDrawing/025.JPG"></li>
-        </ul>
-        <div style="text-align: center;">
-            <textarea id="code"></textarea>
-        </div>
+      <ul>
+        <li><img src="../images/washDrawing/001.JPG" /></li>
+        <li><img src="../images/washDrawing/002.JPG" /></li>
+        <li><img src="../images/washDrawing/007.JPG" /></li>
+        <li><img src="../images/washDrawing/018.JPG" /></li>
+        <li><img src="../images/washDrawing/025.JPG" /></li>
+      </ul>
+      <div style="text-align: center">
+        <textarea id="code"></textarea>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Check Position</title>
+  </head>
+  <body>
+    <div id="position"></div>
+
+    <script>
+      function doFirst() {
+        navigator.geolocation.getCurrentPosition(succCallback, errorCallback, {
+          enableHighAccuracy: false,
+          timeout: 10000,
+          maximumAge: false,
+        });
+        // geolocation 提供的方法：
+        // 1. getCurrentPosition(): 單次擷取目前的位置
+        // 2. watchPosition(): 持續偵測位置，並定期確認是否有移動
+      }
+      function succCallback(e) {
+        // 內含的兩個屬性：coords 和 timestamp(時間戳記)
+        // coords 物件的屬性--第一層級
+        // 。緯度：latitude (單位：double)
+        // 。經度：longitude (單位： double)
+        // 。準確度：accuracy (單位：公尺)
+        // coords 物件的屬性--第二層級
+        // 。海拔高度：altitude (單位：double)
+        // 。準確度： altitudeAccuracy (單位： double)
+        // 。方向：heading (單位： double)
+        // 。速度：speed (單位： double)
+        let lati = e.coords.latitude;
+        let longi = e.coords.longitude;
+        let accuracy = e.coords.accuracy;
+
+        if (accuracy > 3000) {
+          document.querySelector("#position").innerHTML = `超過偵測範圍`;
+        } else {
+          document.querySelector("#position").innerHTML = `
+                緯度: ${lati}<br>
+                經度: ${longi}<br>
+                準確度: ${accuracy} 公尺<br>
+                `;
+        }
+      }
+      function errorCallback(e) {
+        document.querySelector("#position").innerHTML = `
+            錯誤碼: ${e.code} <br>
+            錯誤訊息: ${e.message}
+            `;
+      }
+      window.addEventListener("load", doFirst);
+    </script>
+  </body>
+</html>
+<!-- 
+緯度: 25.0521646
+經度: 121.5432739
+準確度: 14.748
+
+緯度: 25.0521593
+經度: 121.5432624
+準確度: 17.576 公尺
+-->

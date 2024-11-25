@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Drag & Drop -- 多重檔案</title>
+    <style>
+      img {
+        max-width: 100px;
+        max-height: 100px;
+      }
+      #dropzone {
+        border: 5px dashed #ccc;
+        width: 400px;
+        height: 400px;
+        /* padding: 40px 0; */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dropzone"></div>
+
+    <script>
+      function doFirst() {
+        // 先跟 HTML 畫面產生關連，再建事件聆聽功能
+        document.querySelector("#dropzone").ondragover = dragOver;
+        document.querySelector("#dropzone").ondrop = dropped;
+      }
+      function dragOver(e) {
+        e.preventDefault();
+      }
+      function dropped(e) {
+        e.preventDefault();
+
+        let files = e.dataTransfer.files;
+
+        let readFile = new FileReader();
+        readFile.readAsDataURL(file);
+
+        for (let i = 0; i < files.length; i++) {
+          readFile.readAsDataURL(files[i]);
+          readFile.addEventListener("load", function () {
+            // 動態新增
+            // 1 先建標籤(或建立 Image 物件)
+
+            let image = document.createElement("image");
+            // 2 將該標籤的屬性和方法先寫好
+            image.src = readFile.result;
+
+            // 3 找到爸爸，加進去
+            let dropzone = document.querySelector("#dropzone");
+            dropzone.appenChild(image);
+          });
+        }
+      }
+      window.addEventListener("load", doFirst);
+
+      // const 舉例
+      // const temp = 100;
+      // temp = 50;
+      // const house = {
+      //   table: 2,
+      //   chair: 4,
+      // };
+      // house = "ABC"; //x
+      // house.table = 3; //v
+    </script>
+  </body>
+</html>

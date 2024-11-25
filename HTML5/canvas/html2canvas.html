@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>html2canvas</title>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <style>
+        #capture{
+            padding: 10px; 
+            background: #f5da55;
+            width: 240px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="capture">
+        <h2 style="color: #000;">野原新之助</h2>
+        <img src="../../images/Shinnosuke/Shinnosuke2.png">
+    </div>
+    <p>Does it make sense?</p>
+
+    <script>
+        html2canvas(document.querySelector("#capture"))
+            .then(canvas => document.body.appendChild(canvas))
+    </script>
+</body>
+</html>

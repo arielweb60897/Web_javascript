@@ -26,7 +26,29 @@
 	<script src="./js/jquery-3.7.1.js"></script>
 	<script>
 		$(function () {
-			
+			$('.area:first').css('opacity',1)
+			let showHeight = 200
+
+			$(window).scroll(function(){
+				// console.log($(window).height());	// 585
+				// console.log(Math.round($(window).scrollTop())); // 3915
+				// 每個 div 的高度是 900px
+
+				// console.log($(this));
+				
+				$('.area').each(function(){
+					let setThis = $(this)
+					let areaTop = setThis.offset().top // 物件和螢幕上面的距離
+					// console.log(areaTop);  // 0 --> 900 --> 1800 --> 2700 --> 3600
+
+					if($(window).scrollTop() >= (areaTop + showHeight) - $(window).height()){
+						setThis.stop().animate({opacity: 1}, 800)
+					}else{
+						setThis.stop().animate({opacity: 0}, 1000)
+					}
+					
+				})
+			})
 		})	
 	</script>
 </head>

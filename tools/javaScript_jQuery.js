@@ -15,6 +15,14 @@ img物件.width               $('img').attr('width', 300)  // setter
 某物件.style.css屬性        $('物件').css('屬性','屬性值')  // setter
                            let ans = $('物件').css('屬性') // getter
 -----------------------------------------------
+物件.parentNode             $(物件).parent()
+物件.childNodes             $(物件).children()
+
+物件.firstChild             $(物件).first()
+物件.lastChild              $(物件).last()
+
+物件.previousSibling        $(物件).prev()  | $(物件).prevAll()  | $(物件).siblings()
+物件.nextSibling            $(物件).next()  | $(物件).nextAll()
 -----------------------------------------------
 
 

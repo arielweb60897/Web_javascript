@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery UI -- draggable</title>
+    <style>
+        .box{
+            width: 400px;
+            height: 400px;
+            background-color: #ccc;
+        }
+        .drag{
+            background-color: #abc;
+            width: 80px;
+            height: 80px;
+
+            font: 18px Tahoma;
+            text-align: center;
+            line-height: 80px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.js"></script>
+</head>
+<body>
+    <div class="box">
+        <div class="drag">Drag me</div>
+    </div>
+    <p id="feedback"></p>
+
+    <script>
+        $(function(){
+            $('.drag').draggable({
+                // axis: 'x',
+                // revert: true,   // 回到原點
+
+                // 限制拖曳範圍
+                // containment: 'window',
+                // containment: 'document',
+                containment: 'parent',
+                // containment: [0, 0, 400, 400],
+
+                start(){
+                    // $('#feedback').text('Dragging start.')
+                    $('.drag').css('borderRadius','50%')
+                },
+                drag(){
+                    $('#feedback').text('Dragging.')
+                },
+                stop(){
+                    $('#feedback').text('Dragging stop.')
+                },
+            })
+        })
+    </script>
+</body>
+</html>

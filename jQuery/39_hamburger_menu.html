@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>jQuery</title>
+        <style>
+            body{
+                background-color: #eee;
+            }
+            .transition{
+                transition: 1s;
+            }
+            .wrapper{
+                width: 800px;
+                margin: 20px;
+            }
+            .menu{
+                display: inline-block;
+                cursor: pointer;
+                position: relative;
+                padding: 0 0 0 3px;
+            }
+            .menu.active{
+                background-color: #fff;
+            }
+            .menu ul{
+                position: relative;
+                left: 0;
+                top: 0;
+                background-color: rgba(255, 255, 255, 0.7);
+                width: 115px;
+                opacity: 0;
+            }
+            .menu.active ul{
+                opacity: 1;
+            }
+            .menu>ul>li>a{
+                display: block;
+                padding: 10px;
+            }
+            .menu>ul>li>a:hover{
+                background-color: lightgreen;
+            }
+            ul li{
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .bar{
+                width: 36px;
+                height: 6px;
+                background-color: #666;
+                margin: 6px 0;
+                border-radius: 2px;
+            }
+            .menu.active .bar1{transform: rotate(-45deg) translate(-9px, 7px);}
+            .menu.active .bar2{opacity: 0;}
+            .menu.active .bar3{transform: rotate(45deg) translate(-9px, -8px);}
+        </style>
+        <script src="./js/jquery-3.7.1.js"></script>
+        
+        <script>
+            $(function(){
+                $('.menu').click(function(){
+                    // $(this).addClass('active')
+                    $(this).toggleClass('active')
+                })            
+            })
+        </script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="menu transition">
+                <div class="bar bar1 transition"></div>
+                <div class="bar bar2 transition"></div>
+                <div class="bar bar3 transition"></div>
+
+                <ul class="transition">
+                    <li><a href="transition">Home</a></li>
+                    <li><a href="transition">About</a></li>
+                    <li><a href="transition">Products</a></li>
+                    <li><a href="transition">Gallery</a></li>
+                    <li><a href="transition">Do Nothing</a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>

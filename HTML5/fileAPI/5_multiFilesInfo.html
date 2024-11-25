@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File API</title>
+</head>
+<body>
+    <input type="file" id="theFile" multiple>
+    <p>
+        <textarea id="fileInfo" rows="25" cols="70"></textarea>
+    </p>
+
+    <script>
+        function doFirst(){
+        // 先跟 HTML 畫面產生關連，再建事件聆聽功能
+            document.querySelector('#theFile').onchange = fileChange
+        }
+        function fileChange(){
+            let files = document.querySelector('#theFile').files
+
+            let message = ''
+
+            for(let i = 0; i < files.length; i++){
+                message += `File name: ${files[i].name}\n`
+                message += `File type: ${files[i].type}\n`
+                message += `File size: ${files[i].size} byte\n`
+                message += `Last Modified: ${files[i].lastModifiedDate}\n`
+                message += `---------------------------------\n`
+            }
+
+            document.querySelector('#fileInfo').value = message
+            
+        }
+        window.addEventListener('load',doFirst)
+    </script>
+</body>
+</html>
